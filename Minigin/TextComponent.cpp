@@ -11,8 +11,8 @@
 
 namespace dae
 {
-	TextComponent::TextComponent(const std::string& text, const std::string& font, unsigned int fontSize)
-		: m_NeedsUpdate(true), m_Text(text), m_FontFile(font), m_FontSize(fontSize), m_pTexture(nullptr)
+	TextComponent::TextComponent(const std::string& text, const std::string& font, unsigned int fontSize, Color color)
+		: m_NeedsUpdate(true), m_Text(text), m_FontFile(font), m_FontSize(fontSize), m_Color(color), m_pTexture(nullptr)
 	{
 		m_pFont = ResourceManager::GetInstance().LoadFont(m_FontFile, m_FontSize);
 	}
@@ -27,8 +27,7 @@ namespace dae
 	{
 		if (m_NeedsUpdate)
 		{
-			const SDL_Color color = { 255, 255, 255 };
-			const auto surface = TTF_RenderText_Blended(m_pFont->GetFont(), m_Text.c_str(), color);
+			const auto surface = TTF_RenderText_Blended(m_pFont->GetFont(), m_Text.c_str(), m_Color.GetSDL());
 			if (surface == nullptr)
 			{
 				throw std::runtime_error(std::string("Render text failed: ") + SDL_GetError());
@@ -39,6 +38,7 @@ namespace dae
 				throw std::runtime_error(std::string("Render text failed: ") + SDL_GetError());
 			}
 			SDL_FreeSurface(surface);
+			SafeDelete(m_pTexture);
 			m_pTexture = new Texture2D(texture);
 			m_NeedsUpdate = false;
 		}
@@ -52,7 +52,6 @@ namespace dae
 			Renderer::GetInstance().RenderTexture(*m_pTexture, pos.x, pos.y);
 		}
 	}
-
 
 	void TextComponent::SetText(const std::string& text)
 	{
@@ -70,6 +69,12 @@ namespace dae
 	{
 		m_FontSize = size;
 		ReloadFont();
+	}
+
+	void TextComponent::SetColor(const Color& color)
+	{
+		m_Color = color;
+		m_NeedsUpdate = true;
 	}
 
 	void TextComponent::ReloadFont()

@@ -1,19 +1,21 @@
 #include "MiniginPCH.h"
 #include "Minigin.h"
+
 #include <chrono>
 #include <thread>
+#include <SDL.h>
+
 #include "InputManager.h"
-#include "SceneManager.h"
 #include "Renderer.h"
 #include "ResourceManager.h"
-#include <SDL.h>
+#include "Scene.h"
+#include "SceneManager.h"
+#include "Time.h"
+
 #include "TextComponent.h"
 #include "GameObject.h"
-#include "Scene.h"
 #include "TextureComponent.h"
-
-using namespace std;
-using namespace std::chrono;
+#include "FPSComponent.h"
 
 void dae::Minigin::Initialize()
 {
@@ -68,7 +70,19 @@ void dae::Minigin::LoadGame() const
 	text->SetFont("Lingua.otf");
 	text->SetSize(36);
 	text->SetText("Programming 4 Assignment");
+	text->SetColor({ 1.0f, 1.0f, 1.0f });
 	go->AddComponent(text);
+	scene.Add(go);
+
+	// FPS
+	go = new GameObject();
+	go->GetTransform()->SetPosition(0, 0);
+	text = new TextComponent();
+	text->SetText("60 FPS");
+	text->SetSize(24);
+	text->SetColor(Color(1.0f, 0.0f, 1.0f));
+	go->AddComponent(text);
+	go->AddComponent(new FPSComponent());
 	scene.Add(go);
 }
 
@@ -90,21 +104,25 @@ void dae::Minigin::Run()
 	LoadGame();
 
 	{
+		auto t = std::chrono::high_resolution_clock::now();
 		auto& renderer = Renderer::GetInstance();
 		auto& sceneManager = SceneManager::GetInstance();
 		auto& input = InputManager::GetInstance();
 
 		bool doContinue = true;
+		auto lastTime = std::chrono::high_resolution_clock::now();
 		while (doContinue)
 		{
-			const auto currentTime = high_resolution_clock::now();
+			const auto currentTime = std::chrono::high_resolution_clock::now();
+			Time::GetInstance().Update(lastTime);
 			
 			doContinue = input.ProcessInput();
 			sceneManager.Update();
 			renderer.Render();
-			
-			auto sleepTime = duration_cast<duration<float>>(currentTime + milliseconds(MsPerFrame) - high_resolution_clock::now());
-			this_thread::sleep_for(sleepTime);
+
+			t = lastTime + std::chrono::milliseconds(m_MsPerFrame);
+			lastTime = currentTime;
+			std::this_thread::sleep_until(t);
 		}
 	}
 
