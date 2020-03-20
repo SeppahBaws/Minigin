@@ -1,9 +1,7 @@
 #include "MiniginPCH.h"
 #include "GameObject.h"
-#include "ResourceManager.h"
-#include "Renderer.h"
-#include "BaseComponent.h"
-#include "TransformComponent.h"
+#include "Components/BaseComponent.h"
+#include "Components/TransformComponent.h"
 
 namespace dae
 {

@@ -1,6 +1,6 @@
 #pragma once
-#include "BaseComponent.h"
-#include "TransformComponent.h"
+#include "Components/BaseComponent.h"
+#include "Components/TransformComponent.h"
 
 namespace dae
 {

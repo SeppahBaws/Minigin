@@ -1,12 +1,14 @@
 #pragma once
+
 struct SDL_Window;
+
 namespace dae
 {
-	class Minigin
+	class MiniginApp
 	{
 	public:
 		void Initialize();
-		void LoadGame() const;
+		virtual void LoadGame() const = 0;
 		void Cleanup();
 		void Run();
 

@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "Singleton.h"
+#include "../Utils/Singleton.h"
 #include <chrono>
 
 namespace dae

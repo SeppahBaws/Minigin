@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Minigin", "Minigin\Minigin.vcxproj", "{41B0EC47-D48C-4B0F-951B-D98595FFAE0A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BubbleBobble", "BubbleBobble\BubbleBobble.vcxproj", "{58003963-D3A2-488C-9FC5-1F9AC7DDCFEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{C0F4A267-8B6A-466F-94CE-E3A3072663D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{86432912-37CB-4ACF-91EB-C6AD6EF5E2C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,9 +27,21 @@ Global
 		{41B0EC47-D48C-4B0F-951B-D98595FFAE0A}.Release|x64.Build.0 = Release|x64
 		{41B0EC47-D48C-4B0F-951B-D98595FFAE0A}.Release|x86.ActiveCfg = Release|Win32
 		{41B0EC47-D48C-4B0F-951B-D98595FFAE0A}.Release|x86.Build.0 = Release|Win32
+		{58003963-D3A2-488C-9FC5-1F9AC7DDCFEF}.Debug|x64.ActiveCfg = Debug|x64
+		{58003963-D3A2-488C-9FC5-1F9AC7DDCFEF}.Debug|x64.Build.0 = Debug|x64
+		{58003963-D3A2-488C-9FC5-1F9AC7DDCFEF}.Debug|x86.ActiveCfg = Debug|Win32
+		{58003963-D3A2-488C-9FC5-1F9AC7DDCFEF}.Debug|x86.Build.0 = Debug|Win32
+		{58003963-D3A2-488C-9FC5-1F9AC7DDCFEF}.Release|x64.ActiveCfg = Release|x64
+		{58003963-D3A2-488C-9FC5-1F9AC7DDCFEF}.Release|x64.Build.0 = Release|x64
+		{58003963-D3A2-488C-9FC5-1F9AC7DDCFEF}.Release|x86.ActiveCfg = Release|Win32
+		{58003963-D3A2-488C-9FC5-1F9AC7DDCFEF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{41B0EC47-D48C-4B0F-951B-D98595FFAE0A} = {C0F4A267-8B6A-466F-94CE-E3A3072663D4}
+		{58003963-D3A2-488C-9FC5-1F9AC7DDCFEF} = {86432912-37CB-4ACF-91EB-C6AD6EF5E2C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0EC5898B-D2F2-4193-AC86-1A61B49691D6}

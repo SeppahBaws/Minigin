@@ -1,6 +1,6 @@
 #pragma once
 #include <XInput.h>
-#include "Singleton.h"
+#include "../Utils/Singleton.h"
 
 namespace dae
 {

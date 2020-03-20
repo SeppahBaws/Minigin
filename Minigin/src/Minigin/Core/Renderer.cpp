@@ -1,7 +1,7 @@
 #include "MiniginPCH.h"
 #include "Renderer.h"
 #include <SDL.h>
-#include "SceneManager.h"
+#include "../Scene/SceneManager.h"
 #include "Texture2D.h"
 
 void dae::Renderer::Init(SDL_Window * window)

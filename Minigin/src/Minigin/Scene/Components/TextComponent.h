@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "BaseComponent.h"
-#include "Color.h"
+#include "../../Core/Color.h"
 
 namespace dae
 {
