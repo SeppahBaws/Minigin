@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include <Minigin/Scene/Components/BaseComponent.h>
+#include <Minigin.h>
 
 namespace dae
 {

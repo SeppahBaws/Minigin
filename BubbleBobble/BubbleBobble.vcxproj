@@ -192,6 +192,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   <ItemGroup>
     <ClCompile Include="src\BubbleBobble.cpp" />
     <ClCompile Include="src\Components\FPSComponent.cpp" />
+    <ClCompile Include="src\Components\PlayerBehaviour.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -203,6 +204,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   <ItemGroup>
     <ClInclude Include="src\BubbleBobble.h" />
     <ClInclude Include="src\Components\FPSComponent.h" />
+    <ClInclude Include="src\Components\PlayerBehaviour.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>

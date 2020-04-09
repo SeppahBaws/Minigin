@@ -2,6 +2,8 @@
 #include "Components/BaseComponent.h"
 #include "Components/TransformComponent.h"
 
+#include <type_traits>
+
 namespace dae
 {
 	class Texture2D;
@@ -25,7 +27,8 @@ namespace dae
 		 * Adds a new component of the given type.
 		 */
 		template<typename T>
-		void AddComponent()
+		typename std::enable_if<std::is_base_of<BaseComponent, T>::value, void>::type
+		AddComponent()
 		{
 			T* pComp = new T();
 			pComp->m_pGameObject = this;
@@ -42,7 +45,8 @@ namespace dae
 		 * If no component was found, it returns nullptr.
 		 */
 		template<typename T>
-		T* GetComponent()
+		typename std::enable_if<std::is_base_of<BaseComponent, T>::value, T*>::type
+		GetComponent()
 		{
 			for (const BaseComponent* pComp : m_pComponents)
 			{

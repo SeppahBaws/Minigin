@@ -20,6 +20,7 @@ void dae::MiniginApp::Initialize()
 		throw std::runtime_error(std::string("SDL_Init Error: ") + SDL_GetError());
 	}
 
+	// TODO: make the window arguments available to the user application.
 	m_Window = SDL_CreateWindow(
 		"Programming 4 assignment",
 		SDL_WINDOWPOS_UNDEFINED,
@@ -65,7 +66,8 @@ void dae::MiniginApp::Run()
 		{
 			const auto currentTime = std::chrono::high_resolution_clock::now();
 			Time::GetInstance().Update(lastTime);
-			
+
+			// TODO: input.ProcessInput shouldn't be responsible for telling when the application should quit
 			doContinue = input.ProcessInput();
 			sceneManager.Update();
 			renderer.Render();

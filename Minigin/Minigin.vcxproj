@@ -210,10 +210,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Minigin.h" />
+    <ClInclude Include="src\Minigin\Input\GamepadInput.h" />
+    <ClInclude Include="src\Minigin\Input\KeyboardInput.h" />
+    <ClInclude Include="src\Minigin\Input\MouseInput.h" />
     <ClInclude Include="src\Minigin\Scene\Components\BaseComponent.h" />
     <ClInclude Include="src\Minigin\Core\Color.h" />
     <ClInclude Include="src\Minigin\Core\Font.h" />
     <ClInclude Include="src\Minigin\Scene\Components.h" />
+    <ClInclude Include="src\Minigin\Scene\Components\SpriteComponent.h" />
     <ClInclude Include="src\Minigin\Scene\GameObject.h" />
     <ClInclude Include="src\Minigin\Input\InputManager.h" />
     <ClInclude Include="src\Minigin\MiniginApp.h" />
@@ -232,6 +236,7 @@
   <ItemGroup>
     <ClCompile Include="src\Minigin\Core\Color.cpp" />
     <ClCompile Include="src\Minigin\Core\Font.cpp" />
+    <ClCompile Include="src\Minigin\Scene\Components\SpriteComponent.cpp" />
     <ClCompile Include="src\Minigin\Scene\GameObject.cpp" />
     <ClCompile Include="src\Minigin\Input\InputManager.cpp" />
     <ClCompile Include="src\Minigin\MiniginApp.cpp" />

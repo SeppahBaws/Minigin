@@ -4,6 +4,7 @@
 #include <Minigin.h>
 
 #include "Components/FPSComponent.h"
+#include "Components/PlayerBehaviour.h"
 
 using namespace dae;
 
@@ -47,5 +48,13 @@ void BubbleBobble::LoadGame() const
 	text->SetColor(Color(1.0f, 0.0f, 1.0f));
 	go->AddComponent(text);
 	go->AddComponent(new FPSComponent());
+	scene.Add(go);
+
+	// Player
+	go = new GameObject();
+	go->GetTransform()->SetPosition(0, 70);
+	go->AddComponent<PlayerBehaviour>();
+	go->AddComponent(new SpriteComponent("PlayerSprites/bub_run.png", 1, 8, 3.0f));
+	// go->AddComponent(new SpriteComponent("test-player-run.png", 1, 8, 7.0f));
 	scene.Add(go);
 }

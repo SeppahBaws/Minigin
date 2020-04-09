@@ -11,6 +11,5 @@ int main(int, char*[])
 {
 	BubbleBobble game;
 	game.Run();
-	std::cout << "Hello World" << std::endl;
 	return 0;
 }
