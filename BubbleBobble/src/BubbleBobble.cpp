@@ -10,6 +10,39 @@ using namespace dae;
 
 void BubbleBobble::LoadGame() const
 {
+	SetupInput();
+	SetupScene();
+}
+
+void BubbleBobble::SetupInput() const
+{
+	InputManager::GetInstance().SetupAxis("MovementHorizontal", {
+		{
+			{ GamepadAxis::LeftThumbX, 1.0f },
+			{ Key::D, 1.0f },
+			{ Key::A, -1.0f },
+		}
+	});
+	
+	InputManager::GetInstance().SetupAxis("MovementVertical", {
+		{
+			{ GamepadAxis::LeftThumbY, 1.0f },
+			{ Key::W, -1.0f },
+			{ Key::S, 1.0f },
+		}
+	});
+	
+	InputManager::GetInstance().SetupAction("Shoot", {
+		{
+			{ GamepadButton::A, InputState::Pressed },
+			{ Key::Space, InputState::Pressed },
+			{ MouseButton::Left, InputState::Pressed }
+		}
+	});
+}
+
+void BubbleBobble::SetupScene() const
+{
 	Scene& scene = SceneManager::GetInstance().CreateScene("Demo");
 
 	// Background
@@ -52,7 +85,7 @@ void BubbleBobble::LoadGame() const
 
 	// Player
 	go = new GameObject();
-	go->GetTransform()->SetPosition(0, 70);
+	go->GetTransform()->SetPosition(200, 200);
 	go->AddComponent<PlayerBehaviour>();
 	go->AddComponent(new SpriteComponent("PlayerSprites/bub_run.png", 1, 8, 3.0f));
 	// go->AddComponent(new SpriteComponent("test-player-run.png", 1, 8, 7.0f));

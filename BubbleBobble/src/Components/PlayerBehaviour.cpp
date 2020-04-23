@@ -1,9 +1,7 @@
 ﻿#include "pch.h"
 #include "PlayerBehaviour.h"
 
-#include <Minigin/Scene/GameObject.h>
-
-#include "Minigin/Core/Time.h"
+#include <Minigin.h>
 
 #include <glm/glm.hpp>
 
@@ -18,10 +16,13 @@ namespace dae
 	{
 		const float dt = Time::GetDeltaTime();
 
-		auto& input = InputManager::GetInstance();
+		InputManager& input = InputManager::GetInstance();
 		glm::vec3 pos = m_pGameObject->GetTransform()->GetPosition();
 		
-		const glm::vec2 movement = glm::vec2(input.GetAxis(GamepadAxis::LeftThumbX), -input.GetAxis(GamepadAxis::LeftThumbY));
+		const glm::vec2 movement = glm::normalize(glm::vec2(
+			input.GetAxis("MovementHorizontal"),
+			input.GetAxis("MovementVertical"))
+		);
 
 		if (glm::length(movement) > 0.5f)
 		{
@@ -30,5 +31,10 @@ namespace dae
 		}
 
 		m_pGameObject->GetTransform()->SetPosition(pos.x, pos.y, pos.z);
+
+		if (input.GetAction("Shoot"))
+		{
+			std::cout << "Shoot!" << std::endl;
+		}
 	}
 }

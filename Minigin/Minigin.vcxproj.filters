@@ -84,6 +84,21 @@
     <ClInclude Include="src\Minigin\Scene\Components\SpriteComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Minigin\Input\InputAxis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Minigin\Input\InputBinding.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Minigin\Input\InputState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Minigin\Input\InputAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Minigin\Input\KeyboardState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Minigin\Core\Color.cpp">
@@ -132,6 +147,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Minigin\Scene\Components\SpriteComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Minigin\Input\InputAxis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Minigin\Input\InputBinding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Minigin\Input\InputAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Minigin\Input\KeyboardState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

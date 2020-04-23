@@ -1,7 +1,18 @@
 #pragma once
 #include "../Utils/Singleton.h"
 
+#include "InputState.h"
+
 #include "GamepadInput.h"
+#include "KeyboardInput.h"
+#include "MouseInput.h"
+
+#include "KeyboardState.h"
+
+#include "InputBinding.h"
+
+#define GAMEPAD_TRIGGER_MAX 255.0f;
+#define GAMEPAD_AXIS_MAX  32767.0f;
 
 namespace dae
 {
@@ -9,6 +20,9 @@ namespace dae
 	{
 	public:
 		bool ProcessInput();
+
+		void SetupAxis(const std::string& name, const InputBinding& axisBinding);
+		void SetupAction(const std::string& name, const InputBinding& actionBinding);
 
 		/**
 		 * Returns true if the gamepad button is being pressed *this frame*.
@@ -30,9 +44,24 @@ namespace dae
 		 */
 		float GetAxis(GamepadAxis axis) const;
 
+		float GetAxis(const std::string& name);
+		bool GetAction(const std::string& name);
+
+		InputState GetButtonState(GamepadButton button) const;
+		InputState GetButtonState(MouseButton button) const;
+		InputState GetKeyState(Key key) const;
+
 	private:
 		XINPUT_STATE m_CurrentGamepadState{};
 		XINPUT_STATE m_PreviousGamepadState{};
+
+		KeyboardState m_CurrentKeyboardState;
+		KeyboardState m_PreviousKeyboardState;
+
+		uint8_t m_CurrentMouseButtonState = 0;
+		uint8_t m_PreviousMouseButtonState = 0;
+
+		std::unordered_map<std::string, InputBinding> m_Bindings;
 	};
 
 }

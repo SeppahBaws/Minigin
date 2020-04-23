@@ -4,8 +4,16 @@
 
 #include "Minigin/Core/Color.h"
 #include "Minigin/Core/ResourceManager.h"
+#include "Minigin/Core/Time.h"
 
 #include "Minigin/Input/InputManager.h"
+#include "Minigin/Input/InputAction.h"
+#include "Minigin/Input/InputAxis.h"
+#include "Minigin/Input/InputBinding.h"
+#include "Minigin/Input/GamepadInput.h"
+#include "Minigin/Input/KeyboardInput.h"
+#include "Minigin/Input/MouseInput.h"
+#include "Minigin/Input/InputState.h"
 
 #include "Minigin/Scene/SceneManager.h"
 #include "Minigin/Scene/Scene.h"

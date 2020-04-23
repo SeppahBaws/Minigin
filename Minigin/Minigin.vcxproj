@@ -211,7 +211,12 @@
   <ItemGroup>
     <ClInclude Include="src\Minigin.h" />
     <ClInclude Include="src\Minigin\Input\GamepadInput.h" />
+    <ClInclude Include="src\Minigin\Input\InputAction.h" />
+    <ClInclude Include="src\Minigin\Input\InputAxis.h" />
+    <ClInclude Include="src\Minigin\Input\InputBinding.h" />
+    <ClInclude Include="src\Minigin\Input\InputState.h" />
     <ClInclude Include="src\Minigin\Input\KeyboardInput.h" />
+    <ClInclude Include="src\Minigin\Input\KeyboardState.h" />
     <ClInclude Include="src\Minigin\Input\MouseInput.h" />
     <ClInclude Include="src\Minigin\Scene\Components\BaseComponent.h" />
     <ClInclude Include="src\Minigin\Core\Color.h" />
@@ -236,6 +241,10 @@
   <ItemGroup>
     <ClCompile Include="src\Minigin\Core\Color.cpp" />
     <ClCompile Include="src\Minigin\Core\Font.cpp" />
+    <ClCompile Include="src\Minigin\Input\InputAction.cpp" />
+    <ClCompile Include="src\Minigin\Input\InputAxis.cpp" />
+    <ClCompile Include="src\Minigin\Input\InputBinding.cpp" />
+    <ClCompile Include="src\Minigin\Input\KeyboardState.cpp" />
     <ClCompile Include="src\Minigin\Scene\Components\SpriteComponent.cpp" />
     <ClCompile Include="src\Minigin\Scene\GameObject.cpp" />
     <ClCompile Include="src\Minigin\Input\InputManager.cpp" />
