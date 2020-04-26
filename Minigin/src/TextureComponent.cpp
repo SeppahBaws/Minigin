@@ -1,9 +1,9 @@
 ﻿#include "MiniginPCH.h"
 #include "TextureComponent.h"
-#include "../../Core/Texture2D.h"
-#include "../../Core/Renderer.h"
-#include "../../Core/ResourceManager.h"
-#include "../GameObject.h"
+#include "Texture2D.h"
+#include "Renderer.h"
+#include "ResourceManager.h"
+#include "GameObject.h"
 #include "TransformComponent.h"
 
 #pragma warning(push)

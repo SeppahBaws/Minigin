@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "BaseComponent.h"
 
-#include "Minigin/Core/Texture2D.h"
+#include "Texture2D.h"
 
 #pragma warning(push)
 #pragma warning (disable:4201)

@@ -1,9 +1,9 @@
 ﻿#include "pch.h"
 
 #include "FPSComponent.h"
-#include "Minigin/Core/Time.h"
-#include "Minigin/Scene/GameObject.h"
-#include "Minigin/Scene/Components.h"
+#include "Time.h"
+#include "GameObject.h"
+#include "Components.h"
 
 namespace dae
 {

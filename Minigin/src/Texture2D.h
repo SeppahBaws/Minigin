@@ -1,4 +1,5 @@
 #pragma once
+
 struct SDL_Texture;
 namespace dae
 {

@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <iostream> // std::cout
 #include <sstream> // stringstream
+#include <string>
 #include <vector>
 #include <unordered_map>
 

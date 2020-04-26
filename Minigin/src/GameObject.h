@@ -1,6 +1,6 @@
 #pragma once
-#include "Components/BaseComponent.h"
-#include "Components/TransformComponent.h"
+#include "BaseComponent.h"
+#include "TransformComponent.h"
 
 #include <type_traits>
 

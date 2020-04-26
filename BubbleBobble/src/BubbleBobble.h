@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include <Minigin.h>
+#include "MiniginApp.h"
 
 class BubbleBobble final : public dae::MiniginApp
 {

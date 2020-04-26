@@ -1,9 +1,13 @@
 #pragma once
+#include <string>
+#include <vector>
+
 #include "SceneManager.h"
 
 namespace dae
 {
 	class GameObject;
+	class SceneManager;
 	class Scene
 	{
 	public:
@@ -26,6 +30,6 @@ namespace dae
 		std::string m_Name;
 		std::vector<GameObject*> m_Objects{};
 
-		static unsigned int m_IdCounter; 
+		static unsigned int m_IdCounter;
 	};
 }

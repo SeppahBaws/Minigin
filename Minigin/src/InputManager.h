@@ -1,7 +1,7 @@
 #pragma once
 #include <SDL.h>
 
-#include "../Utils/Singleton.h"
+#include "Singleton.h"
 
 #include "InputState.h"
 

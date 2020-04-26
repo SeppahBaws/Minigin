@@ -1,9 +1,14 @@
 ﻿#include "pch.h"
 #include "PlayerBehaviour.h"
 
-#include <Minigin.h>
+#include "Time.h"
+#include "InputManager.h"
+#include "GameObject.h"
 
+#pragma warning(push)
+#pragma warning (disable:4201)
 #include <glm/glm.hpp>
+#pragma warning(pop)
 
 #include "imgui.h"
 

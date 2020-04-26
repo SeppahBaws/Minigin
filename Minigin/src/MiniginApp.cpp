@@ -6,14 +6,14 @@
 #include <SDL.h>
 #include "imgui.h"
 
-#include "Core/Renderer.h"
-#include "Core/ResourceManager.h"
-#include "Core/Time.h"
+#include "Renderer.h"
+#include "ResourceManager.h"
+#include "Time.h"
 
-#include "Input/InputManager.h"
+#include "InputManager.h"
 
-#include "Scene/SceneManager.h"
-#include "Utils/ImGuiWrapper.h"
+#include "SceneManager.h"
+#include "ImGuiWrapper.h"
 
 void dae::MiniginApp::Initialize()
 {

@@ -1,207 +1,219 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="External">
+      <UniqueIdentifier>{4f0df659-cf79-405c-b891-1810abb85c3b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    <Filter Include="Minigin">
+      <UniqueIdentifier>{7b637f56-d00c-42b6-a949-f30f4314c123}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Minigin\Core">
+      <UniqueIdentifier>{0a285bc3-fa81-4b67-8db3-fb64f79d4166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Minigin\Input">
+      <UniqueIdentifier>{dbe7be48-df58-4678-98a9-2cbc728b1cf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Minigin\Scene">
+      <UniqueIdentifier>{e0f8a5c5-95ee-49cf-9ca0-100741203386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Minigin\Utils">
+      <UniqueIdentifier>{9600f256-8795-409c-93e1-a8fb55ccc6a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Minigin\Scene\Components">
+      <UniqueIdentifier>{781adc9f-20bf-4690-9118-d54bed33c01e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\DearImGui">
+      <UniqueIdentifier>{1d94c013-80e7-4c12-b244-da253e9046f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\ImGui_SDL">
+      <UniqueIdentifier>{06fc09f0-1e6a-4e61-b711-3db9e7d8045c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Minigin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Core\Color.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Core\Font.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Core\Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Core\ResourceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Core\Texture2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Core\Time.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Input\InputManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Scene\Components\BaseComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Scene\Components\TextComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Scene\Components\TextureComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Scene\Components\TransformComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Scene\Components.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Scene\GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Scene\Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Scene\SceneManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Utils\Singleton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\MiniginApp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\MiniginPCH.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Input\KeyboardInput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Input\MouseInput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Input\GamepadInput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Scene\Components\SpriteComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Input\InputAxis.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Input\InputBinding.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Input\InputState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Input\InputAction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Minigin\Input\KeyboardState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdParty\imgui_stb\imgui_sdl.h">
-      <Filter>Header Files</Filter>
+      <Filter>Minigin</Filter>
     </ClInclude>
     <ClInclude Include="..\3rdParty\imgui\imconfig.h">
-      <Filter>Header Files</Filter>
+      <Filter>External\DearImGui</Filter>
     </ClInclude>
     <ClInclude Include="..\3rdParty\imgui\imgui.h">
-      <Filter>Header Files</Filter>
+      <Filter>External\DearImGui</Filter>
     </ClInclude>
     <ClInclude Include="..\3rdParty\imgui\imgui_internal.h">
-      <Filter>Header Files</Filter>
+      <Filter>External\DearImGui</Filter>
     </ClInclude>
     <ClInclude Include="..\3rdParty\imgui\imstb_rectpack.h">
-      <Filter>Header Files</Filter>
+      <Filter>External\DearImGui</Filter>
     </ClInclude>
     <ClInclude Include="..\3rdParty\imgui\imstb_textedit.h">
-      <Filter>Header Files</Filter>
+      <Filter>External\DearImGui</Filter>
     </ClInclude>
     <ClInclude Include="..\3rdParty\imgui\imstb_truetype.h">
-      <Filter>Header Files</Filter>
+      <Filter>External\DearImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Minigin\Utils\ImGuiWrapper.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Color.h">
+      <Filter>Minigin\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Font.h">
+      <Filter>Minigin\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer.h">
+      <Filter>Minigin\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ResourceManager.h">
+      <Filter>Minigin\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture2D.h">
+      <Filter>Minigin\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Time.h">
+      <Filter>Minigin\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamepadInput.h">
+      <Filter>Minigin\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InputAction.h">
+      <Filter>Minigin\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InputAxis.h">
+      <Filter>Minigin\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InputBinding.h">
+      <Filter>Minigin\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InputManager.h">
+      <Filter>Minigin\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InputState.h">
+      <Filter>Minigin\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\KeyboardInput.h">
+      <Filter>Minigin\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\KeyboardState.h">
+      <Filter>Minigin\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MouseInput.h">
+      <Filter>Minigin\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BaseComponent.h">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SpriteComponent.h">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextComponent.h">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureComponent.h">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TransformComponent.h">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components.h">
+      <Filter>Minigin\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject.h">
+      <Filter>Minigin\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene.h">
+      <Filter>Minigin\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneManager.h">
+      <Filter>Minigin\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGuiWrapper.h">
+      <Filter>Minigin\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Singleton.h">
+      <Filter>Minigin\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MiniginApp.h">
+      <Filter>Minigin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui_sdl\imgui_sdl.h">
+      <Filter>External\ImGui_SDL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Minigin\Core\Color.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Core\Font.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Core\Renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Core\ResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Core\Texture2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Core\Time.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Input\InputManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Scene\Components\TextComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Scene\Components\TextureComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Scene\Components\TransformComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Scene\GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Scene\Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Scene\SceneManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\MiniginApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\MiniginPCH.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Scene\Components\SpriteComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Input\InputAxis.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Input\InputBinding.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Input\InputAction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Minigin\Input\KeyboardState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\3rdParty\imgui_stb\imgui_sdl.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Minigin</Filter>
     </ClCompile>
     <ClCompile Include="..\3rdParty\imgui\imgui.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>External\DearImGui</Filter>
     </ClCompile>
     <ClCompile Include="..\3rdParty\imgui\imgui_demo.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>External\DearImGui</Filter>
     </ClCompile>
     <ClCompile Include="..\3rdParty\imgui\imgui_draw.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>External\DearImGui</Filter>
     </ClCompile>
     <ClCompile Include="..\3rdParty\imgui\imgui_widgets.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>External\DearImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Minigin\Utils\ImGuiWrapper.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Color.cpp">
+      <Filter>Minigin\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Font.cpp">
+      <Filter>Minigin\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer.cpp">
+      <Filter>Minigin\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ResourceManager.cpp">
+      <Filter>Minigin\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture2D.cpp">
+      <Filter>Minigin\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Time.cpp">
+      <Filter>Minigin\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputAction.cpp">
+      <Filter>Minigin\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputAxis.cpp">
+      <Filter>Minigin\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputBinding.cpp">
+      <Filter>Minigin\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputManager.cpp">
+      <Filter>Minigin\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\KeyboardState.cpp">
+      <Filter>Minigin\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SpriteComponent.cpp">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextComponent.cpp">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureComponent.cpp">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TransformComponent.cpp">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject.cpp">
+      <Filter>Minigin\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene.cpp">
+      <Filter>Minigin\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneManager.cpp">
+      <Filter>Minigin\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGuiWrapper.cpp">
+      <Filter>Minigin\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MiniginApp.cpp">
+      <Filter>Minigin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui_sdl\imgui_sdl.cpp">
+      <Filter>External\ImGui_SDL</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

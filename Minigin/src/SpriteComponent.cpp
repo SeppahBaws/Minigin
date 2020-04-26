@@ -1,10 +1,10 @@
 ﻿#include "MiniginPCH.h"
 #include "SpriteComponent.h"
-#include "Minigin/Scene/GameObject.h"
+#include "GameObject.h"
 
-#include "Minigin/Core/Renderer.h"
-#include "Minigin/Core/ResourceManager.h"
-#include "Minigin/Core/Time.h"
+#include "Renderer.h"
+#include "ResourceManager.h"
+#include "Time.h"
 
 #include <SDL.h>
 

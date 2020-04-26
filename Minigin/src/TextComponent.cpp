@@ -1,10 +1,10 @@
 ﻿#include "MiniginPCH.h"
 #include "TextComponent.h"
-#include "../../Core/Font.h"
-#include "../../Core/Texture2D.h"
-#include "../../Core/Renderer.h"
-#include "../../Core/ResourceManager.h"
-#include "../GameObject.h"
+#include "Font.h"
+#include "Texture2D.h"
+#include "Renderer.h"
+#include "ResourceManager.h"
+#include "GameObject.h"
 
 #include <SDL.h>
 #include <SDL_ttf.h>

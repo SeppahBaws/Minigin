@@ -100,7 +100,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\imgui;$(SolutionDir)3rdParty\imgui_stb;$(ProjectDir)src;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\imgui;$(SolutionDir)3rdParty\imgui_sdl;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -127,7 +127,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\imgui;$(SolutionDir)3rdParty\imgui_stb;$(ProjectDir)src;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\imgui;$(SolutionDir)3rdParty\imgui_sdl;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -156,7 +156,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\imgui;$(SolutionDir)3rdParty\imgui_sdl;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -187,7 +187,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\imgui;$(SolutionDir)3rdParty\imgui_sdl;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -215,68 +215,77 @@
     <ClInclude Include="..\3rdParty\imgui\imstb_rectpack.h" />
     <ClInclude Include="..\3rdParty\imgui\imstb_textedit.h" />
     <ClInclude Include="..\3rdParty\imgui\imstb_truetype.h" />
-    <ClInclude Include="..\3rdParty\imgui_stb\imgui_sdl.h" />
-    <ClInclude Include="src\Minigin.h" />
-    <ClInclude Include="src\Minigin\Input\GamepadInput.h" />
-    <ClInclude Include="src\Minigin\Input\InputAction.h" />
-    <ClInclude Include="src\Minigin\Input\InputAxis.h" />
-    <ClInclude Include="src\Minigin\Input\InputBinding.h" />
-    <ClInclude Include="src\Minigin\Input\InputState.h" />
-    <ClInclude Include="src\Minigin\Input\KeyboardInput.h" />
-    <ClInclude Include="src\Minigin\Input\KeyboardState.h" />
-    <ClInclude Include="src\Minigin\Input\MouseInput.h" />
-    <ClInclude Include="src\Minigin\Scene\Components\BaseComponent.h" />
-    <ClInclude Include="src\Minigin\Core\Color.h" />
-    <ClInclude Include="src\Minigin\Core\Font.h" />
-    <ClInclude Include="src\Minigin\Scene\Components.h" />
-    <ClInclude Include="src\Minigin\Scene\Components\SpriteComponent.h" />
-    <ClInclude Include="src\Minigin\Scene\GameObject.h" />
-    <ClInclude Include="src\Minigin\Input\InputManager.h" />
-    <ClInclude Include="src\Minigin\MiniginApp.h" />
+    <ClInclude Include="..\3rdParty\imgui_sdl\imgui_sdl.h" />
+    <ClInclude Include="src\GamepadInput.h" />
+    <ClInclude Include="src\InputAction.h" />
+    <ClInclude Include="src\InputAxis.h" />
+    <ClInclude Include="src\InputBinding.h" />
+    <ClInclude Include="src\InputState.h" />
+    <ClInclude Include="src\KeyboardInput.h" />
+    <ClInclude Include="src\KeyboardState.h" />
+    <ClInclude Include="src\MouseInput.h" />
+    <ClInclude Include="src\BaseComponent.h" />
+    <ClInclude Include="src\Color.h" />
+    <ClInclude Include="src\Font.h" />
+    <ClInclude Include="src\Components.h" />
+    <ClInclude Include="src\SpriteComponent.h" />
+    <ClInclude Include="src\GameObject.h" />
+    <ClInclude Include="src\InputManager.h" />
+    <ClInclude Include="src\MiniginApp.h" />
     <ClInclude Include="src\MiniginPCH.h" />
-    <ClInclude Include="src\Minigin\Core\Renderer.h" />
-    <ClInclude Include="src\Minigin\Core\ResourceManager.h" />
-    <ClInclude Include="src\Minigin\Scene\Scene.h" />
-    <ClInclude Include="src\Minigin\Scene\SceneManager.h" />
-    <ClInclude Include="src\Minigin\Utils\ImGuiWrapper.h" />
-    <ClInclude Include="src\Minigin\Utils\Singleton.h" />
-    <ClInclude Include="src\Minigin\Scene\Components\TextComponent.h" />
-    <ClInclude Include="src\Minigin\Core\Texture2D.h" />
-    <ClInclude Include="src\Minigin\Scene\Components\TextureComponent.h" />
-    <ClInclude Include="src\Minigin\Core\Time.h" />
-    <ClInclude Include="src\Minigin\Scene\Components\TransformComponent.h" />
+    <ClInclude Include="src\Renderer.h" />
+    <ClInclude Include="src\ResourceManager.h" />
+    <ClInclude Include="src\Scene.h" />
+    <ClInclude Include="src\SceneManager.h" />
+    <ClInclude Include="src\ImGuiWrapper.h" />
+    <ClInclude Include="src\Singleton.h" />
+    <ClInclude Include="src\TextComponent.h" />
+    <ClInclude Include="src\Texture2D.h" />
+    <ClInclude Include="src\TextureComponent.h" />
+    <ClInclude Include="src\Time.h" />
+    <ClInclude Include="src\TransformComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\3rdParty\imgui\imgui.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\3rdParty\imgui\imgui_demo.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\3rdParty\imgui\imgui_draw.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\3rdParty\imgui\imgui_widgets.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\3rdParty\imgui_stb\imgui_sdl.cpp">
+    <ClCompile Include="..\3rdParty\imgui_sdl\imgui_sdl.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Minigin\Core\Color.cpp" />
-    <ClCompile Include="src\Minigin\Core\Font.cpp" />
-    <ClCompile Include="src\Minigin\Input\InputAction.cpp" />
-    <ClCompile Include="src\Minigin\Input\InputAxis.cpp" />
-    <ClCompile Include="src\Minigin\Input\InputBinding.cpp" />
-    <ClCompile Include="src\Minigin\Input\KeyboardState.cpp" />
-    <ClCompile Include="src\Minigin\Scene\Components\SpriteComponent.cpp" />
-    <ClCompile Include="src\Minigin\Scene\GameObject.cpp" />
-    <ClCompile Include="src\Minigin\Input\InputManager.cpp" />
-    <ClCompile Include="src\Minigin\MiniginApp.cpp" />
+    <ClCompile Include="src\Color.cpp" />
+    <ClCompile Include="src\Font.cpp" />
+    <ClCompile Include="src\InputAction.cpp" />
+    <ClCompile Include="src\InputAxis.cpp" />
+    <ClCompile Include="src\InputBinding.cpp" />
+    <ClCompile Include="src\KeyboardState.cpp" />
+    <ClCompile Include="src\SpriteComponent.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\InputManager.cpp" />
+    <ClCompile Include="src\MiniginApp.cpp" />
     <ClCompile Include="src\MiniginPCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -284,16 +293,16 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MiniginPCH.h</PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="src\Minigin\Core\Renderer.cpp" />
-    <ClCompile Include="src\Minigin\Core\ResourceManager.cpp" />
-    <ClCompile Include="src\Minigin\Scene\Scene.cpp" />
-    <ClCompile Include="src\Minigin\Scene\SceneManager.cpp" />
-    <ClCompile Include="src\Minigin\Scene\Components\TextComponent.cpp" />
-    <ClCompile Include="src\Minigin\Core\Texture2D.cpp" />
-    <ClCompile Include="src\Minigin\Scene\Components\TextureComponent.cpp" />
-    <ClCompile Include="src\Minigin\Core\Time.cpp" />
-    <ClCompile Include="src\Minigin\Scene\Components\TransformComponent.cpp" />
-    <ClCompile Include="src\Minigin\Utils\ImGuiWrapper.cpp" />
+    <ClCompile Include="src\Renderer.cpp" />
+    <ClCompile Include="src\ResourceManager.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
+    <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\TextComponent.cpp" />
+    <ClCompile Include="src\Texture2D.cpp" />
+    <ClCompile Include="src\TextureComponent.cpp" />
+    <ClCompile Include="src\Time.cpp" />
+    <ClCompile Include="src\TransformComponent.cpp" />
+    <ClCompile Include="src\ImGuiWrapper.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,11 @@
 ﻿#include "pch.h"
 #include "BubbleBobble.h"
 
-#include <Minigin.h>
+#include "InputManager.h"
+#include "SceneManager.h"
+#include "Scene.h"
+#include "Components.h"
+#include "GameObject.h"
 
 #include "Components/FPSComponent.h"
 #include "Components/PlayerBehaviour.h"

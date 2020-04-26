@@ -3,7 +3,7 @@
 
 #include "imgui.h"
 #include "imgui_sdl.h"
-#include "Minigin/Core/Renderer.h"
+#include "Renderer.h"
 
 namespace dae
 {

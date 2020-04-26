@@ -1,5 +1,5 @@
 #pragma once
-#include "../Utils/Singleton.h"
+#include "Singleton.h"
 
 struct SDL_Window;
 struct SDL_Renderer;
