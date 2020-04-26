@@ -15,6 +15,7 @@ namespace dae
 		PlayerBehaviour& operator=(PlayerBehaviour&& other) noexcept = delete;
 
 		void OnUpdate() override;
+		void OnImGui() override;
 
 	private:
 		float m_MovementSpeed;

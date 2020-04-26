@@ -1,4 +1,6 @@
 #pragma once
+#include <SDL.h>
+
 #include "../Utils/Singleton.h"
 
 #include "InputState.h"
@@ -19,7 +21,7 @@ namespace dae
 	class InputManager final : public Singleton<InputManager>
 	{
 	public:
-		bool ProcessInput();
+		void ProcessInput(const SDL_Event& e);
 
 		void SetupAxis(const std::string& name, const InputBinding& axisBinding);
 		void SetupAction(const std::string& name, const InputBinding& actionBinding);

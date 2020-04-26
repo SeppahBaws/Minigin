@@ -17,6 +17,7 @@ namespace dae
 
 		virtual void OnUpdate() {}
 		virtual void OnRender() {}
+		virtual void OnImGui() {}
 
 		GameObject* GetGameObject() const { return m_pGameObject; }
 

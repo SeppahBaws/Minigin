@@ -5,6 +5,8 @@
 
 #include <glm/glm.hpp>
 
+#include "imgui.h"
+
 namespace dae
 {
 	PlayerBehaviour::PlayerBehaviour()
@@ -36,5 +38,25 @@ namespace dae
 		{
 			std::cout << "Shoot!" << std::endl;
 		}
+	}
+
+	void PlayerBehaviour::OnImGui()
+	{
+		if (ImGui::Begin("Test"))
+		{
+			ImGui::Text("Hello BubbleBobble!");
+
+			if (ImGui::Button("Click me!"))
+			{
+				std::cout << "Hello there!" << std::endl;
+			}
+		}
+		ImGui::End();
+
+		if (ImGui::Begin("Test 2"))
+		{
+			ImGui::Text("I'm a second window! You can dock me in other windows!");
+		}
+		ImGui::End();
 	}
 }

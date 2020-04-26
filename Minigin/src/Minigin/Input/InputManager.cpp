@@ -1,10 +1,9 @@
 #include "MiniginPCH.h"
 #include "InputManager.h"
-#include <SDL.h>
 
 namespace dae
 {
-	bool InputManager::ProcessInput()
+	void InputManager::ProcessInput(const SDL_Event& e)
 	{
 		m_PreviousGamepadState = m_CurrentGamepadState;
 		m_PreviousKeyboardState = m_CurrentKeyboardState;
@@ -13,40 +12,31 @@ namespace dae
 		ZeroMemory(&m_CurrentGamepadState, sizeof(XINPUT_STATE));
 		XInputGetState(0, &m_CurrentGamepadState);
 
-		SDL_Event e;
-		while (SDL_PollEvent(&e))
+		switch (e.type)
 		{
-			switch (e.type)
-			{
-			case SDL_QUIT:
-				return false;
+		case SDL_KEYDOWN:
+			m_CurrentKeyboardState.SetState(e.key.keysym.scancode, true);
+			break;
+		case SDL_KEYUP:
+			m_CurrentKeyboardState.SetState(e.key.keysym.scancode, false);
+			break;
 
-			case SDL_KEYDOWN:
-				m_CurrentKeyboardState.SetState(e.key.keysym.scancode, true);
-				break;
-			case SDL_KEYUP:
-				m_CurrentKeyboardState.SetState(e.key.keysym.scancode, false);
-				break;
+		case SDL_MOUSEMOTION:
+			// TODO
+			break;
+		case SDL_MOUSEBUTTONDOWN:
+			m_CurrentMouseButtonState |= SDL_BUTTON(e.button.button);
+			break;
+		case SDL_MOUSEBUTTONUP:
+			m_CurrentMouseButtonState &= ~SDL_BUTTON(e.button.button);
+			break;
+		case SDL_MOUSEWHEEL:
+			// TODO
+			break;
 
-			case SDL_MOUSEMOTION:
-				// TODO
-				break;
-			case SDL_MOUSEBUTTONDOWN:
-				m_CurrentMouseButtonState |= SDL_BUTTON(e.button.button);
-				break;
-			case SDL_MOUSEBUTTONUP:
-				m_CurrentMouseButtonState &= ~SDL_BUTTON(e.button.button);
-				break;
-			case SDL_MOUSEWHEEL:
-				// TODO
-				break;
-
-			default:
-				break;
-			}
+		default:
+			break;
 		}
-
-		return true;
 	}
 
 	void InputManager::SetupAxis(const std::string& name, const InputBinding& axisBinding)

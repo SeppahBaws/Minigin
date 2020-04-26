@@ -40,4 +40,12 @@ namespace dae
 			object->Render();
 		}
 	}
+
+	void Scene::RenderImGui() const
+	{
+		for (const GameObject* object : m_Objects)
+		{
+			object->RenderImGui();
+		}
+	}
 }

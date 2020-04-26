@@ -21,3 +21,4 @@
 #include "Minigin/Scene/GameObject.h"
 
 #include "Minigin/Utils/Singleton.h"
+#include "Minigin/Utils/ImGuiWrapper.h"

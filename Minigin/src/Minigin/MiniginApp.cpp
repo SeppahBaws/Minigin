@@ -4,6 +4,7 @@
 #include <chrono>
 #include <thread>
 #include <SDL.h>
+#include "imgui.h"
 
 #include "Core/Renderer.h"
 #include "Core/ResourceManager.h"
@@ -12,6 +13,7 @@
 #include "Input/InputManager.h"
 
 #include "Scene/SceneManager.h"
+#include "Utils/ImGuiWrapper.h"
 
 void dae::MiniginApp::Initialize()
 {
@@ -23,8 +25,8 @@ void dae::MiniginApp::Initialize()
 	// TODO: make the window arguments available to the user application.
 	m_Window = SDL_CreateWindow(
 		"Programming 4 assignment",
-		SDL_WINDOWPOS_UNDEFINED,
-		SDL_WINDOWPOS_UNDEFINED,
+		SDL_WINDOWPOS_CENTERED,
+		SDL_WINDOWPOS_CENTERED,
 		640,
 		480,
 		SDL_WINDOW_OPENGL
@@ -67,8 +69,20 @@ void dae::MiniginApp::Run()
 			const auto currentTime = std::chrono::high_resolution_clock::now();
 			Time::GetInstance().Update(lastTime);
 
-			// TODO: input.ProcessInput shouldn't be responsible for telling when the application should quit
-			doContinue = input.ProcessInput();
+			ImGuiWrapper::NewFrame();
+
+			SDL_Event e;
+			while (SDL_PollEvent(&e))
+			{
+				if (e.type == SDL_QUIT)
+				{
+					doContinue = false;
+					break;
+				}
+
+				input.ProcessInput(e);
+				ImGuiWrapper::HandleEvents(e);
+			}
 			sceneManager.Update();
 			renderer.Render();
 

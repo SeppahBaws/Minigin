@@ -42,6 +42,14 @@ namespace dae
 		}
 	}
 
+	void GameObject::RenderImGui() const
+	{
+		for (const auto component : m_pComponents)
+		{
+			component->OnImGui();
+		}
+	}
+
 	TransformComponent* GameObject::GetTransform() const
 	{
 		return m_pTransform;
