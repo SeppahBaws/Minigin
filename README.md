@@ -6,6 +6,7 @@ This project is my assignment for the final exam of the Programming 4 course at 
 
 - SceneManager
 - GameObject-Component system
+- Flexible Input system
 
 ---
 
