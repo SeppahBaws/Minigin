@@ -13,6 +13,7 @@ namespace dae
 	public:
 		Scene& CreateScene(const std::string& name);
 
+		void Prepare();
 		void Update();
 		void Render();
 		void RenderImGui();

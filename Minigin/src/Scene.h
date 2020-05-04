@@ -13,6 +13,7 @@ namespace dae
 	public:
 		void Add(GameObject* object);
 
+		void Prepare();
 		void Update();
 		void Render() const;
 		void RenderImGui() const;

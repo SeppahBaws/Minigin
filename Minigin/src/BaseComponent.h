@@ -15,6 +15,8 @@ namespace dae
 			m_pGameObject = nullptr;
 		}
 
+		virtual void OnPrepare() {}
+
 		virtual void OnUpdate() {}
 		virtual void OnRender() {}
 		virtual void OnImGui() {}

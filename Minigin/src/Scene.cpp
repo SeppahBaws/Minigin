@@ -25,6 +25,14 @@ namespace dae
 		m_Objects.push_back(object);
 	}
 
+	void Scene::Prepare()
+	{
+		for (GameObject* object : m_Objects)
+		{
+			object->Prepare();
+		}
+	}
+
 	void Scene::Update()
 	{
 		for (GameObject* object : m_Objects)

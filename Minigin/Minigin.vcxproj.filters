@@ -28,6 +28,9 @@
     <Filter Include="External\ImGui_SDL">
       <UniqueIdentifier>{06fc09f0-1e6a-4e61-b711-3db9e7d8045c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Minigin\Physics">
+      <UniqueIdentifier>{a549dda0-e6ab-430b-8ff5-4618115cca42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\MiniginPCH.h">
@@ -135,6 +138,12 @@
     <ClInclude Include="..\3rdParty\imgui_sdl\imgui_sdl.h">
       <Filter>External\ImGui_SDL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Physics.h">
+      <Filter>Minigin\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RigidBodyComponent.h">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MiniginPCH.cpp">
@@ -215,5 +224,9 @@
     <ClCompile Include="..\3rdParty\imgui_sdl\imgui_sdl.cpp">
       <Filter>External\ImGui_SDL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Physics.cpp">
+      <Filter>Minigin\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RigidBodyComponent.cpp" />
   </ItemGroup>
 </Project>

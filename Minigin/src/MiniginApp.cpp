@@ -14,6 +14,7 @@
 
 #include "SceneManager.h"
 #include "ImGuiWrapper.h"
+#include "Physics.h"
 
 void dae::MiniginApp::Initialize()
 {
@@ -37,11 +38,15 @@ void dae::MiniginApp::Initialize()
 	}
 
 	Renderer::GetInstance().Init(m_Window);
+
+	Physics::GetInstance().Init();
 }
 
 void dae::MiniginApp::Cleanup()
 {
+	Physics::GetInstance().Destroy();
 	Renderer::GetInstance().Destroy();
+
 	SDL_DestroyWindow(m_Window);
 	m_Window = nullptr;
 	SDL_Quit();
@@ -61,6 +66,8 @@ void dae::MiniginApp::Run()
 		auto& renderer = Renderer::GetInstance();
 		auto& sceneManager = SceneManager::GetInstance();
 		auto& input = InputManager::GetInstance();
+
+		sceneManager.Prepare();
 
 		bool doContinue = true;
 		auto lastTime = std::chrono::high_resolution_clock::now();
@@ -85,6 +92,8 @@ void dae::MiniginApp::Run()
 			}
 			sceneManager.Update();
 			renderer.Render();
+
+			Physics::GetInstance().Update();
 
 			t = lastTime + std::chrono::milliseconds(m_MsPerFrame);
 			lastTime = currentTime;

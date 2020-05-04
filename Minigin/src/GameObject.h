@@ -17,6 +17,7 @@ namespace dae
 		GameObject& operator=(const GameObject& other) = delete;
 		GameObject& operator=(GameObject&& other) = delete;
 
+		void Prepare();
 		void Update();
 		void Render() const;
 		void RenderImGui() const;

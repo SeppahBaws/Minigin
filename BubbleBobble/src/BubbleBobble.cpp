@@ -90,8 +90,17 @@ void BubbleBobble::SetupScene() const
 	// Player
 	go = new GameObject();
 	go->GetTransform()->SetPosition(200, 200);
+	go->AddComponent(new RigidBodyComponent(glm::vec2(50.0f, 50.0f), RigidBodyType::Dynamic));
 	go->AddComponent<PlayerBehaviour>();
 	go->AddComponent(new SpriteComponent("PlayerSprites/bub_run.png", 1, 8, 3.0f));
-	// go->AddComponent(new SpriteComponent("test-player-run.png", 1, 8, 7.0f));
+	scene.Add(go);
+
+	// Ground
+	go = new GameObject();
+	go->GetTransform()->SetPosition(150, 400);
+	go->AddComponent(new RigidBodyComponent(glm::vec2(130.0f, 25.0f), RigidBodyType::Static));
+	TextureComponent* pGroundTexture = new TextureComponent();
+	pGroundTexture->SetTexture("PlayerSprites/bub_run.png");
+	go->AddComponent(pGroundTexture);
 	scene.Add(go);
 }

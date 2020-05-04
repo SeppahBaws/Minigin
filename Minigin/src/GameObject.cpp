@@ -26,6 +26,14 @@ namespace dae
 		m_pComponents.push_back(pComp);
 	}
 
+	void GameObject::Prepare()
+	{
+		for (const auto component : m_pComponents)
+		{
+			component->OnPrepare();
+		}
+	}
+
 	void GameObject::Update()
 	{
 		for (const auto component : m_pComponents)
