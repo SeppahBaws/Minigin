@@ -33,6 +33,14 @@ namespace dae
 		}
 	}
 
+	void Scene::PhysicsUpdate()
+	{
+		for (GameObject* object : m_Objects)
+		{
+			object->PhysicsUpdate();
+		}
+	}
+
 	void Scene::Update()
 	{
 		for (GameObject* object : m_Objects)

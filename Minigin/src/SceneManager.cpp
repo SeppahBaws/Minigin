@@ -11,6 +11,14 @@ void dae::SceneManager::Prepare()
 }
 
 
+void dae::SceneManager::PhysicsUpdate()
+{
+	for (auto& scene : m_Scenes)
+	{
+		scene->PhysicsUpdate();
+	}
+}
+
 void dae::SceneManager::Update()
 {
 	for(auto& scene : m_Scenes)

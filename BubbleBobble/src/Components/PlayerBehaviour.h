@@ -19,5 +19,7 @@ namespace dae
 
 	private:
 		float m_MovementSpeed;
+		float m_MovementForce;
+		float m_JumpForce;
 	};
 }

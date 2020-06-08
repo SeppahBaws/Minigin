@@ -30,7 +30,7 @@ void dae::MiniginApp::Initialize()
 		SDL_WINDOWPOS_CENTERED,
 		640,
 		480,
-		SDL_WINDOW_OPENGL
+		SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE
 	);
 	if (m_Window == nullptr) 
 	{
@@ -78,6 +78,11 @@ void dae::MiniginApp::Run()
 
 			ImGuiWrapper::NewFrame();
 
+			Physics::GetInstance().Update();
+			sceneManager.PhysicsUpdate();
+
+			input.Update();
+
 			SDL_Event e;
 			while (SDL_PollEvent(&e))
 			{
@@ -87,13 +92,12 @@ void dae::MiniginApp::Run()
 					break;
 				}
 
-				input.ProcessInput(e);
 				ImGuiWrapper::HandleEvents(e);
+				input.ProcessEvents(e);
 			}
+
 			sceneManager.Update();
 			renderer.Render();
-
-			Physics::GetInstance().Update();
 
 			t = lastTime + std::chrono::milliseconds(m_MsPerFrame);
 			lastTime = currentTime;

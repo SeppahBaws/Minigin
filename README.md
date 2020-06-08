@@ -7,6 +7,21 @@ This project is my assignment for the final exam of the Programming 4 course at 
 - SceneManager
 - GameObject-Component system
 - Flexible Input system
+- Physics system using [Box2D](https://box2d.org/)
+
+
+## Engine Order of Execution
+
+```
+OnPrepare()
+
+OnPhysicsUpdate()    <---+
+OnUpdate()               |  Game Loop
+OnRender()               |
+OnRenderImGui()      ----+
+
+OnCleanup()
+```
 
 ---
 

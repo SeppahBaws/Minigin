@@ -13,6 +13,7 @@ struct SDL_Rect;
 
 namespace dae
 {
+	class CameraComponent;
 	class Texture2D;
 
 	/**
@@ -34,6 +35,7 @@ namespace dae
 		void DebugRenderRect(const glm::vec2& topLeft, const glm::vec2& bottomRight, const Color& color = Color(1.0f, 0.0f, 0.0f, 1.0f)) const;
 
 		SDL_Renderer* GetSDLRenderer() const { return m_Renderer; }
+
 	private:
 		SDL_Renderer* m_Renderer{};
 	};

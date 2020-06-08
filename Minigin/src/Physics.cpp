@@ -5,7 +5,7 @@ namespace dae
 {
 	void Physics::Init()
 	{
-		const b2Vec2 gravity(0.0f, -9.81f);
+		const b2Vec2 gravity(0.0f, 9.81f);
 		m_pWorld = new b2World(gravity);
 	}
 

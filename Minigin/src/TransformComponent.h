@@ -4,6 +4,7 @@
 #pragma warning(push)
 #pragma warning (disable:4201)
 #include <glm/vec3.hpp>
+#include <glm/mat4x4.hpp>
 #pragma warning(pop)
 
 namespace dae
@@ -19,9 +20,18 @@ namespace dae
 		TransformComponent& operator=(TransformComponent&& other) noexcept = delete;
 
 		const glm::vec3& GetPosition() const { return m_Position; }
-		void SetPosition(float x, float y, float z = 0.0f);
+		void SetPosition(const glm::vec3& pos);
+		void Translate(const glm::vec2& movement);
+		void Translate(const glm::vec3& movement);
+
+		float GetRotation() const { return m_Rotation; }
+		void SetRotation(float rotation);
+
+	private:
+		void UpdatePhysicsBody();
 
 	private:
 		glm::vec3 m_Position;
+		float m_Rotation;
 	};
 }

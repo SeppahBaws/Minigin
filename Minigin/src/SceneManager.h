@@ -7,13 +7,16 @@
 
 namespace dae
 {
+	class CameraComponent;
 	class Scene;
+
 	class SceneManager final : public Singleton<SceneManager>
 	{
 	public:
 		Scene& CreateScene(const std::string& name);
 
 		void Prepare();
+		void PhysicsUpdate();
 		void Update();
 		void Render();
 		void RenderImGui();

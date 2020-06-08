@@ -11,56 +11,97 @@
 #pragma warning(pop)
 
 #include "imgui.h"
+#include "RigidBodyComponent.h"
 
 namespace dae
 {
 	PlayerBehaviour::PlayerBehaviour()
 		: m_MovementSpeed(150.0f)
+		, m_MovementForce(60.0f)
+		, m_JumpForce(25.0f)
 	{
 	}
 
 	void PlayerBehaviour::OnUpdate()
 	{
 		const float dt = Time::GetDeltaTime();
-
-		InputManager& input = InputManager::GetInstance();
-		glm::vec3 pos = m_pGameObject->GetTransform()->GetPosition();
 		
-		const glm::vec2 movement = glm::normalize(glm::vec2(
+		InputManager& input = InputManager::GetInstance();
+		RigidBodyComponent* pRB = m_pGameObject->GetComponent<RigidBodyComponent>();
+
+		glm::vec2 movement = glm::vec2(
 			input.GetAxis("MovementHorizontal"),
-			input.GetAxis("MovementVertical"))
+			0.0f
+			// input.GetAxis("MovementVertical")
 		);
 
 		if (glm::length(movement) > 0.5f)
 		{
-			pos.x += movement.x * dt * m_MovementSpeed;
-			pos.y += movement.y * dt * m_MovementSpeed;
+			movement = glm::normalize(movement);
+			// m_pGameObject->GetTransform()->Translate(movement * dt * m_MovementSpeed);
+			pRB->ApplyForce(movement * m_MovementForce);
 		}
 
-		m_pGameObject->GetTransform()->SetPosition(pos.x, pos.y, pos.z);
-
-		if (input.GetAction("Shoot"))
+		if (input.GetAction("Jump"))
 		{
-			std::cout << "Shoot!" << std::endl;
+			printf("Jump!\n");
+			pRB->ApplyImpulse({ 0.0f, -m_JumpForce });
 		}
 	}
 
 	void PlayerBehaviour::OnImGui()
 	{
-		if (ImGui::Begin("Test"))
+		if (ImGui::Begin("Player Properties"))
 		{
-			ImGui::Text("Hello BubbleBobble!");
+			const glm::vec3 pos = m_pGameObject->GetTransform()->GetPosition();
+			ImGui::Text("Position: (%.2f, %.2f, %.2f)", pos.x, pos.y, pos.z);
 
-			if (ImGui::Button("Click me!"))
+			ImGui::SliderFloat("Movement Force", &m_MovementForce, 0.0f, 200.0f);
+			ImGui::SliderFloat("Jump Force", &m_JumpForce, 0.0f, 100.0f);
+
+			ImGui::Spacing();
+
+			InputManager& input = InputManager::GetInstance();
+
+			const float x = input.GetAxis("MovementHorizontal");
+			const float y = input.GetAxis("MovementVertical");
+
+			ImGui::Text("movement: (%.2f, %.2f)", x, y);
+
+			const bool w = input.GetKeyState(Key::W) == InputState::Down;
+			const bool a = input.GetKeyState(Key::A) == InputState::Down;
+			const bool s = input.GetKeyState(Key::S) == InputState::Down;
+			const bool d = input.GetKeyState(Key::D) == InputState::Down;
+
+			ImGui::Text("W: %d", w);
+			ImGui::Text("A: %d", a);
+			ImGui::Text("S: %d", s);
+			ImGui::Text("D: %d", d);
+
+			InputState state = input.GetKeyState(Key::Space);
+
+			switch (state)
 			{
-				std::cout << "Hello there!" << std::endl;
+			case InputState::Pressed:
+				ImGui::Text("Space: Pressed");
+				break;
+			case InputState::Released:
+				ImGui::Text("Space: Released");
+				break;
+			case InputState::Down:
+				ImGui::Text("Space: Down");
+				break;
+			case InputState::Up:
+				ImGui::Text("Space: Up");
+				break;
 			}
-		}
-		ImGui::End();
 
-		if (ImGui::Begin("Test 2"))
-		{
-			ImGui::Text("I'm a second window! You can dock me in other windows!");
+			ImGui::Spacing();
+
+			if (ImGui::Button("ResetPlayer"))
+			{
+				m_pGameObject->GetTransform()->SetPosition({ 200, 200, 0 });
+			}
 		}
 		ImGui::End();
 	}

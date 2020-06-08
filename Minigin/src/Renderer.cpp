@@ -1,8 +1,14 @@
 #include "MiniginPCH.h"
 #include "Renderer.h"
+
 #include "SceneManager.h"
 #include "ImGuiWrapper.h"
 #include "Texture2D.h"
+
+#pragma warning(push)
+#pragma warning(disable:4201)
+#include <glm/gtc/matrix_transform.hpp>
+#pragma warning(pop)
 
 #include <SDL.h>
 
@@ -53,6 +59,7 @@ namespace dae
 
 	void Renderer::RenderTexture(const Texture2D& texture, const float x, const float y, const float width, const float height) const
 	{
+
 		SDL_Rect dst;
 		dst.x = static_cast<int>(x);
 		dst.y = static_cast<int>(y);
@@ -63,7 +70,13 @@ namespace dae
 
 	void Renderer::RenderTexture(const Texture2D& texture, const SDL_Rect& src, const SDL_Rect& dst) const
 	{
-		SDL_RenderCopy(GetSDLRenderer(), texture.GetSDLTexture(), &src, &dst);
+		SDL_Rect dst_transformed;
+		dst_transformed.x = static_cast<int>(dst.x);
+		dst_transformed.y = static_cast<int>(dst.y);
+		dst_transformed.w = static_cast<int>(dst.w);
+		dst_transformed.h = static_cast<int>(dst.h);
+		
+		SDL_RenderCopy(GetSDLRenderer(), texture.GetSDLTexture(), &src, &dst_transformed);
 	}
 
 	void Renderer::DebugRenderPoint(const glm::vec2& point, const Color& color) const

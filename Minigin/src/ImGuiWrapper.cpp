@@ -4,6 +4,7 @@
 #include "imgui.h"
 #include "imgui_sdl.h"
 #include "Renderer.h"
+#include "Time.h"
 
 namespace dae
 {
@@ -52,11 +53,13 @@ namespace dae
 		int mouseX, mouseY;
 		const int buttons = SDL_GetMouseState(&mouseX, &mouseY);
 
-		io.DeltaTime = 1 / 60.0f;
+		io.DeltaTime = Time::GetDeltaTime();
 		io.MousePos = ImVec2(static_cast<float>(mouseX), static_cast<float>(mouseY));
 		io.MouseDown[0] = buttons & SDL_BUTTON(SDL_BUTTON_LEFT);
 		io.MouseDown[1] = buttons & SDL_BUTTON(SDL_BUTTON_RIGHT);
 		io.MouseWheel = static_cast<float>(scrollWheel);
+		io.WantCaptureKeyboard = true;
+		io.WantCaptureMouse = true;
 	}
 
 	void ImGuiWrapper::NewFrame()

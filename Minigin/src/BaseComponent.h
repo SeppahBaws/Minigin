@@ -17,6 +17,7 @@ namespace dae
 
 		virtual void OnPrepare() {}
 
+		virtual void OnPhysicsUpdate() {}
 		virtual void OnUpdate() {}
 		virtual void OnRender() {}
 		virtual void OnImGui() {}

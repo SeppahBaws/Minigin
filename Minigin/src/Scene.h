@@ -14,6 +14,7 @@ namespace dae
 		void Add(GameObject* object);
 
 		void Prepare();
+		void PhysicsUpdate();
 		void Update();
 		void Render() const;
 		void RenderImGui() const;

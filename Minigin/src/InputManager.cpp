@@ -3,7 +3,7 @@
 
 namespace dae
 {
-	void InputManager::ProcessInput(const SDL_Event& e)
+	void InputManager::Update()
 	{
 		m_PreviousGamepadState = m_CurrentGamepadState;
 		m_PreviousKeyboardState = m_CurrentKeyboardState;
@@ -11,7 +11,10 @@ namespace dae
 
 		ZeroMemory(&m_CurrentGamepadState, sizeof(XINPUT_STATE));
 		XInputGetState(0, &m_CurrentGamepadState);
+	}
 
+	void InputManager::ProcessEvents(SDL_Event e)
+	{
 		switch (e.type)
 		{
 		case SDL_KEYDOWN:

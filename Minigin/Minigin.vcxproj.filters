@@ -7,9 +7,6 @@
     <Filter Include="Minigin">
       <UniqueIdentifier>{7b637f56-d00c-42b6-a949-f30f4314c123}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Minigin\Core">
-      <UniqueIdentifier>{0a285bc3-fa81-4b67-8db3-fb64f79d4166}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Minigin\Input">
       <UniqueIdentifier>{dbe7be48-df58-4678-98a9-2cbc728b1cf5}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,9 @@
     </Filter>
     <Filter Include="Minigin\Physics">
       <UniqueIdentifier>{a549dda0-e6ab-430b-8ff5-4618115cca42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Minigin\Core">
+      <UniqueIdentifier>{0a285bc3-fa81-4b67-8db3-fb64f79d4166}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +144,9 @@
     <ClInclude Include="src\RigidBodyComponent.h">
       <Filter>Minigin\Scene\Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\PhysicsConvert.h">
+      <Filter>Minigin\Physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MiniginPCH.cpp">
@@ -227,6 +230,11 @@
     <ClCompile Include="src\Physics.cpp">
       <Filter>Minigin\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="src\RigidBodyComponent.cpp" />
+    <ClCompile Include="src\RigidBodyComponent.cpp">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhysicsConvert.cpp">
+      <Filter>Minigin\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

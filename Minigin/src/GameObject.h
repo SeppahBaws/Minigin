@@ -18,6 +18,7 @@ namespace dae
 		GameObject& operator=(GameObject&& other) = delete;
 
 		void Prepare();
+		void PhysicsUpdate();
 		void Update();
 		void Render() const;
 		void RenderImGui() const;

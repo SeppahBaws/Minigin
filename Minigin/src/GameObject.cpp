@@ -34,6 +34,14 @@ namespace dae
 		}
 	}
 
+	void GameObject::PhysicsUpdate()
+	{
+		for (const auto component : m_pComponents)
+		{
+			component->OnPhysicsUpdate();
+		}
+	}
+
 	void GameObject::Update()
 	{
 		for (const auto component : m_pComponents)

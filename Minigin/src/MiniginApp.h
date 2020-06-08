@@ -7,6 +7,9 @@ namespace dae
 	class MiniginApp
 	{
 	public:
+		MiniginApp() = default;
+		virtual ~MiniginApp() = default;
+
 		void Initialize();
 		virtual void LoadGame() const = 0;
 		void Cleanup();

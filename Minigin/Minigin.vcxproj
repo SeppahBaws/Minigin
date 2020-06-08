@@ -229,6 +229,7 @@
     <ClInclude Include="src\Font.h" />
     <ClInclude Include="src\Components.h" />
     <ClInclude Include="src\Physics.h" />
+    <ClInclude Include="src\PhysicsConvert.h" />
     <ClInclude Include="src\RigidBodyComponent.h" />
     <ClInclude Include="src\SpriteComponent.h" />
     <ClInclude Include="src\GameObject.h" />
@@ -285,6 +286,7 @@
     <ClCompile Include="src\InputBinding.cpp" />
     <ClCompile Include="src\KeyboardState.cpp" />
     <ClCompile Include="src\Physics.cpp" />
+    <ClCompile Include="src\PhysicsConvert.cpp" />
     <ClCompile Include="src\RigidBodyComponent.cpp" />
     <ClCompile Include="src\SpriteComponent.cpp" />
     <ClCompile Include="src\GameObject.cpp" />

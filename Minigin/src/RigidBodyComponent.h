@@ -22,8 +22,13 @@ namespace dae
 	public:
 		RigidBodyComponent(const glm::vec2& size, RigidBodyType type = RigidBodyType::Static);
 
+		void ApplyForce(const glm::vec2& force);
+		void ApplyImpulse(const glm::vec2& impulse);
+
+		void UpdateBodyTransform(const glm::vec2& position, float rotation);
+
 		void OnPrepare() override;
-		void OnUpdate() override;
+		void OnPhysicsUpdate() override;
 		void OnImGui() override;
 
 	private:

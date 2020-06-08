@@ -21,7 +21,8 @@ namespace dae
 	class InputManager final : public Singleton<InputManager>
 	{
 	public:
-		void ProcessInput(const SDL_Event& e);
+		void Update();
+		void ProcessEvents(SDL_Event e);
 
 		void SetupAxis(const std::string& name, const InputBinding& axisBinding);
 		void SetupAction(const std::string& name, const InputBinding& actionBinding);
