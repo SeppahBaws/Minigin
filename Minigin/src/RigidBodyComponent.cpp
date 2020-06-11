@@ -55,7 +55,7 @@ namespace dae
 
 		b2BodyDef bodyDef;
 		bodyDef.type = bodyType;
-		bodyDef.position.Set((objPos.x + m_Size.x / 2) / ppm, (objPos.y + m_Size.x / 2) / ppm);
+		bodyDef.position.Set((objPos.x + m_Size.x / 2) / ppm, (objPos.y + m_Size.y / 2) / ppm);
 		bodyDef.fixedRotation = true; // Hard-coded for now, might become a parameter in the future.
 		m_pBody = Physics::GetInstance().GetWorld()->CreateBody(&bodyDef);
 

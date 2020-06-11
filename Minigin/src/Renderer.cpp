@@ -27,6 +27,7 @@ namespace dae
 
 	void Renderer::Render() const
 	{
+		SDL_SetRenderDrawColor(m_Renderer, 10, 10, 10, 1);
 		SDL_RenderClear(m_Renderer);
 
 		SceneManager::GetInstance().Render();
