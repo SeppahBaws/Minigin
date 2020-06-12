@@ -21,6 +21,7 @@ namespace dae
 
 		const glm::vec3& GetPosition() const { return m_Position; }
 		void SetPosition(const glm::vec3& pos);
+		// void SetPositionRaw(const glm::vec3& pos);
 		void Translate(const glm::vec2& movement);
 		void Translate(const glm::vec3& movement);
 

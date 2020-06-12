@@ -15,6 +15,13 @@ namespace dae
 		UpdatePhysicsBody();
 	}
 
+	// void TransformComponent::SetPositionRaw(const glm::vec3& pos)
+	// {
+	// 	m_Position.x = pos.x;
+	// 	m_Position.y = pos.y;
+	// 	m_Position.z = pos.z;
+	// }
+
 	void TransformComponent::Translate(const glm::vec2& movement)
 	{
 		Translate(glm::vec3(movement.x, movement.y, 0.0f));

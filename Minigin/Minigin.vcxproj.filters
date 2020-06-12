@@ -31,6 +31,9 @@
     <Filter Include="Minigin\Core">
       <UniqueIdentifier>{0a285bc3-fa81-4b67-8db3-fb64f79d4166}</UniqueIdentifier>
     </Filter>
+    <Filter Include="External\inih">
+      <UniqueIdentifier>{df902de9-a904-40e6-adaf-f411d5d43f7e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\MiniginPCH.h">
@@ -147,6 +150,12 @@
     <ClInclude Include="src\PhysicsConvert.h">
       <Filter>Minigin\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="..\3rdParty\inih\INIReader.h">
+      <Filter>External\inih</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SettingsManager.h">
+      <Filter>Minigin\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MiniginPCH.cpp">
@@ -236,5 +245,6 @@
     <ClCompile Include="src\PhysicsConvert.cpp">
       <Filter>Minigin\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="src\SettingsManager.cpp" />
   </ItemGroup>
 </Project>

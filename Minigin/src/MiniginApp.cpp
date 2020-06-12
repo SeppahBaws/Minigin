@@ -15,24 +15,31 @@
 #include "SceneManager.h"
 #include "ImGuiWrapper.h"
 #include "Physics.h"
+#include "SettingsManager.h"
 
 void dae::MiniginApp::Initialize()
 {
-	if (SDL_Init(SDL_INIT_VIDEO) != 0) 
+	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
 		throw std::runtime_error(std::string("SDL_Init Error: ") + SDL_GetError());
 	}
 
+	SettingsManager::GetInstance().LoadSettings("settings.ini");
+
+	const WindowSettings windowSettings = SettingsManager::GetInstance().GetWindowSettings();
+
 	// TODO: make the window arguments available to the user application.
 	m_Window = SDL_CreateWindow(
-		"Programming 4 assignment",
+		windowSettings.title.c_str(),
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
-		640,
-		480,
-		SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE
+		windowSettings.width,
+		windowSettings.height,
+		windowSettings.resizable
+			? SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE
+			: SDL_WINDOW_OPENGL
 	);
-	if (m_Window == nullptr) 
+	if (m_Window == nullptr)
 	{
 		throw std::runtime_error(std::string("SDL_CreateWindow Error: ") + SDL_GetError());
 	}
@@ -56,8 +63,10 @@ void dae::MiniginApp::Run()
 {
 	Initialize();
 
+	EngineSettings engineSettings = SettingsManager::GetInstance().GetEngineSettings();
+
 	// tell the resource manager where he can find the game data
-	ResourceManager::GetInstance().Init("../Data/");
+	ResourceManager::GetInstance().Init(engineSettings.resourcesLocation);
 
 	LoadGame();
 
@@ -76,7 +85,8 @@ void dae::MiniginApp::Run()
 			const auto currentTime = std::chrono::high_resolution_clock::now();
 			Time::GetInstance().Update(lastTime);
 
-			ImGuiWrapper::NewFrame();
+			if (engineSettings.debug)
+				ImGuiWrapper::NewFrame();
 
 			Physics::GetInstance().Update();
 			sceneManager.PhysicsUpdate();
@@ -92,7 +102,9 @@ void dae::MiniginApp::Run()
 					break;
 				}
 
-				ImGuiWrapper::HandleEvents(e);
+				if (engineSettings.debug)
+					ImGuiWrapper::HandleEvents(e);
+
 				input.ProcessEvents(e);
 			}
 

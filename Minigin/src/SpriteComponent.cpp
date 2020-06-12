@@ -10,10 +10,11 @@
 
 namespace dae
 {
-	SpriteComponent::SpriteComponent(const std::string& texture, int rows, int columns, float scale)
+	SpriteComponent::SpriteComponent(const std::string& texture, int rows, int columns, float scale, int framesPerSec)
 		: m_Rows(rows)
 		, m_Columns(columns)
 		, m_Scale(scale)
+		, m_FramesPerSec(framesPerSec)
 	{
 		m_pTexture = ResourceManager::GetInstance().LoadTexture(texture);
 

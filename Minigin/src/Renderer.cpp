@@ -12,6 +12,8 @@
 
 #include <SDL.h>
 
+#include "SettingsManager.h"
+
 namespace dae
 {
 	void Renderer::Init(SDL_Window* window)
@@ -32,8 +34,11 @@ namespace dae
 
 		SceneManager::GetInstance().Render();
 
-		SceneManager::GetInstance().RenderImGui();
-		ImGuiWrapper::Render();
+		if (SettingsManager::GetInstance().GetEngineSettings().debug)
+		{
+			SceneManager::GetInstance().RenderImGui();
+			ImGuiWrapper::Render();
+		}
 
 		SDL_RenderPresent(m_Renderer);
 	}

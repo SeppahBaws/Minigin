@@ -14,7 +14,7 @@ namespace dae
 	class SpriteComponent : public BaseComponent
 	{
 	public:
-		SpriteComponent(const std::string& texture, int rows, int columns, float scale = 3.0f);
+		SpriteComponent(const std::string& texture, int rows, int columns, float scale = 3.0f, int framesPerSec = 6);
 		virtual ~SpriteComponent();
 
 		void OnUpdate() override;
@@ -23,11 +23,10 @@ namespace dae
 	private:
 		Texture2D* m_pTexture;
 		int m_Rows, m_Columns;
-
 		float m_Scale;
 
-		const int m_FramesPerSec = 6;
-		float m_AccumulatedTime;
+		int m_FramesPerSec;
+		float m_AccumulatedTime = 0.0f;
 		int m_CurrentFrame = 0;
 
 		glm::vec2 m_FramePos;
