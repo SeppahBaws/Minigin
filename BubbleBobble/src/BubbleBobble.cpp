@@ -8,9 +8,11 @@
 #include "Components.h"
 #include "EntityTags.h"
 #include "GameObject.h"
+#include "Game/GameManager.h"
 #include "Game/LivesDisplay.h"
 #include "Game/PlayerBehaviour.h"
 #include "Game/ZenChanBehaviour.h"
+#include "MainMenu/GameOverManager.h"
 #include "MainMenu/MainMenuManager.h"
 #include "MainMenu/PlayButton.h"
 #include "MainMenu/QuitButton.h"
@@ -88,6 +90,12 @@ void BubbleBobble::SetupScene() const
 		go->AddComponent(pTextureComp);
 		scene.Add(go);
 
+		// Game manager
+		go = new GameObject();
+		GameManager* gameManager = new GameManager();
+		go->AddComponent(gameManager);
+		scene.Add(go);
+
 		// FPS
 		go = new GameObject();
 		go->GetTransform()->SetPosition({ 0, 0, 0 });
@@ -96,7 +104,7 @@ void BubbleBobble::SetupScene() const
 
 		// Lives display
 		go = new GameObject();
-		go->GetTransform()->SetPosition({ 10, 150, 0 });
+		go->GetTransform()->SetPosition({ 100, 10, 0 });
 		go->AddComponent(new TextComponent("lives: 4"));
 		LivesDisplay* livesDisplay = new LivesDisplay();
 		go->AddComponent(livesDisplay);
@@ -110,6 +118,7 @@ void BubbleBobble::SetupScene() const
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 48.0f, 48.0f }));
 		PlayerBehaviour* pPlayerBehaviour = new PlayerBehaviour();
 		pPlayerBehaviour->AddObserver(livesDisplay);
+		pPlayerBehaviour->AddObserver(gameManager);
 		go->AddComponent(pPlayerBehaviour);
 		go->AddComponent(new SpriteComponent("sprites/bub_run.png", 1, 2, 3.0f, 3));
 		scene.Add(go);
@@ -123,20 +132,6 @@ void BubbleBobble::SetupScene() const
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 48.0f, 48.0f }));
 		go->AddComponent(new SpriteComponent("sprites/zen-chan_run.png", 1, 2, 3.0f, 3));
 		scene.Add(go);
-
-		// // Fries
-		// go = new GameObject();
-		// go->GetTransform()->SetPosition({ 50, 200, 0 });
-		// go->AddComponent(new RigidBodyComponent(glm::vec2(48.0f, 48.0f), RigidBodyType::Dynamic));
-		// go->AddComponent(new SpriteComponent("sprites/fries.png", 1, 1, 3.0f, 3));
-		// scene.Add(go);
-
-		// // Watermelon
-		// go = new GameObject();
-		// go->GetTransform()->SetPosition({ 100, 200, 0 });
-		// go->AddComponent(new RigidBodyComponent(glm::vec2(48.0f, 48.0f), RigidBodyType::Dynamic));
-		// go->AddComponent(new SpriteComponent("sprites/watermelon.png", 1, 1, 3.0f, 3));
-		// scene.Add(go);
 #pragma endregion
 
 #pragma region world
@@ -148,6 +143,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 0, 460, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(640.0f, 20.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 640.0f, 20.0f }));
+		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
 		scene.Add(go);
 
 		// Top
@@ -156,6 +152,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 0, 0, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(640.0f, 20.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 640.0f, 20.0f }));
+		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
 		scene.Add(go);
 
 		// Left
@@ -164,6 +161,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 0, 0, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(20.0f, 480.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 20.0f, 480.0f }));
+		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
 		scene.Add(go);
 
 		// Right
@@ -172,6 +170,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 620, 0, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(20.0f, 640.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 20.0f, 640.0f }));
+		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
 		scene.Add(go);
 
 
@@ -183,6 +182,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 20, 170, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(60.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 60.0f, 25.0f }));
+		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
 		scene.Add(go);
 
 		go = new GameObject();
@@ -190,6 +190,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 160, 170, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(320.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 320.0f, 25.0f }));
+		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
 		scene.Add(go);
 
 		go = new GameObject();
@@ -197,6 +198,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 560, 170, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(60.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 60.0f, 25.0f }));
+		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
 		scene.Add(go);
 
 		// Bottom row
@@ -205,6 +207,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 20, 320, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(100.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 100.0f, 25.0f }));
+		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
 		scene.Add(go);
 
 		go = new GameObject();
@@ -212,6 +215,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 200, 320, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(240.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 240.0f, 25.0f }));
+		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
 		scene.Add(go);
 
 		go = new GameObject();
@@ -219,6 +223,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 520, 320, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(100.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 100.0f, 25.0f }));
+		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
 		scene.Add(go);
 #pragma endregion
 	}
@@ -275,6 +280,44 @@ void BubbleBobble::SetupScene() const
 		scene.Add(go);
 
 		SceneManager::GetInstance().ActivateScene("MainMenu");
+	}
+#pragma endregion
+
+#pragma region Game Over
+	// Game Over
+	{
+		Scene& scene = SceneManager::GetInstance().CreateScene("GameOver");
+
+		// Game Over manager
+		GameObject* go = new GameObject();
+		go->AddComponent(new GameOverManager());
+		scene.Add(go);
+		
+		// Logo
+		go = new GameObject();
+		go->GetTransform()->SetPosition({ 170.0f, 10.0f, 0.0f });
+		TextureComponent* pTexture = new TextureComponent();
+		pTexture->SetTexture("bubblebobble-logo.png");
+		go->AddComponent(pTexture);
+		scene.Add(go);
+
+		// Game over text
+		go = new GameObject();
+		go->GetTransform()->SetPosition({ 250.0f, 300.0f, 0.0f });
+		go->AddComponent(new TextComponent("Game Over!", "Lingua.otf", 32));
+		scene.Add(go);
+
+		// Continue text
+		go = new GameObject();
+		go->GetTransform()->SetPosition({ 250.0f, 390.0f, 0.0f });
+		go->AddComponent(new TextComponent("To main menu", "Lingua.otf", 24, Color(1.0f, 0.0f, 0.0f)));
+		scene.Add(go);
+
+		// Xbox A prompt
+		go = new GameObject();
+		go->GetTransform()->SetPosition({ 314, 420.0f, 0.0f });
+		go->AddComponent(new SpriteComponent("sprites/xbox-a.png", 1, 2, 3, 4));
+		scene.Add(go);
 	}
 #pragma endregion
 }

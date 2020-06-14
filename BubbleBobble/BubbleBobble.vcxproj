@@ -192,9 +192,11 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   <ItemGroup>
     <ClCompile Include="src\BubbleBobble.cpp" />
     <ClCompile Include="src\Game\Bubble.cpp" />
+    <ClCompile Include="src\Game\GameManager.cpp" />
     <ClCompile Include="src\Game\LivesDisplay.cpp" />
     <ClCompile Include="src\Game\PlayerBehaviour.cpp" />
     <ClCompile Include="src\Game\ZenChanBehaviour.cpp" />
+    <ClCompile Include="src\MainMenu\GameOverManager.cpp" />
     <ClCompile Include="src\MainMenu\MainMenuManager.cpp" />
     <ClCompile Include="src\MainMenu\PlayButton.cpp" />
     <ClCompile Include="src\MainMenu\QuitButton.cpp" />
@@ -211,10 +213,12 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   <ItemGroup>
     <ClInclude Include="src\BubbleBobble.h" />
     <ClInclude Include="src\Game\Bubble.h" />
+    <ClInclude Include="src\Game\GameManager.h" />
     <ClInclude Include="src\Game\LivesDisplay.h" />
     <ClInclude Include="src\Game\PlayerBehaviour.h" />
     <ClInclude Include="src\Game\ZenChanBehaviour.h" />
     <ClInclude Include="src\MainMenu\Button.h" />
+    <ClInclude Include="src\MainMenu\GameOverManager.h" />
     <ClInclude Include="src\MainMenu\MainMenuManager.h" />
     <ClInclude Include="src\EntityTags.h" />
     <ClInclude Include="src\MainMenu\PlayButton.h" />
