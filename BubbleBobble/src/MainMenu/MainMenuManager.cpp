@@ -11,6 +11,11 @@ void MainMenuManager::AddButton(Button* button)
 	m_Buttons.push_back(button);
 }
 
+void MainMenuManager::RegisterSpritePrompt(dae::GameObject* object)
+{
+	m_pSpritePrompt = object;
+}
+
 void MainMenuManager::OnPrepare()
 {
 	m_Buttons[0]->GetGameObject()->GetComponent<dae::TextComponent>()->SetColor(m_ActiveColor);
@@ -26,6 +31,10 @@ void MainMenuManager::OnUpdate()
 			m_Buttons[m_SelectedIdx]->GetGameObject()->GetComponent<TextComponent>()->SetColor(m_InactiveColor);
 			m_SelectedIdx++;
 			m_Buttons[m_SelectedIdx]->GetGameObject()->GetComponent<TextComponent>()->SetColor(m_ActiveColor);
+
+			glm::vec3 pos = m_pSpritePrompt->GetTransform()->GetPosition();
+			pos.y = m_Buttons[m_SelectedIdx]->GetGameObject()->GetTransform()->GetPosition().y;
+			m_pSpritePrompt->GetTransform()->SetPosition(pos);
 		}
 	}
 
@@ -36,6 +45,10 @@ void MainMenuManager::OnUpdate()
 			m_Buttons[m_SelectedIdx]->GetGameObject()->GetComponent<TextComponent>()->SetColor(m_InactiveColor);
 			m_SelectedIdx--;
 			m_Buttons[m_SelectedIdx]->GetGameObject()->GetComponent<TextComponent>()->SetColor(m_ActiveColor);
+
+			glm::vec3 pos = m_pSpritePrompt->GetTransform()->GetPosition();
+			pos.y = m_Buttons[m_SelectedIdx]->GetGameObject()->GetTransform()->GetPosition().y;
+			m_pSpritePrompt->GetTransform()->SetPosition(pos);
 		}
 	}
 

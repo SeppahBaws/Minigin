@@ -262,6 +262,13 @@ void BubbleBobble::SetupScene() const
 		scene.Add(go);
 		mainMenuManager->AddButton(pButton);
 
+		// Xbox A prompt
+		go = new GameObject();
+		go->GetTransform()->SetPosition({ 240.0f, 300.0f, 0.0f });
+		go->AddComponent(new SpriteComponent("sprites/xbox-a.png", 1, 2, 3, 4));
+		scene.Add(go);
+		mainMenuManager->RegisterSpritePrompt(go);
+
 		// Logo
 		go = new GameObject();
 		go->GetTransform()->SetPosition({ 170.0f, 10.0f, 0.0f });
