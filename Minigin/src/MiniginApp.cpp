@@ -28,7 +28,6 @@ void dae::MiniginApp::Initialize()
 
 	const WindowSettings windowSettings = SettingsManager::GetInstance().GetWindowSettings();
 
-	// TODO: make the window arguments available to the user application.
 	m_Window = SDL_CreateWindow(
 		windowSettings.title.c_str(),
 		SDL_WINDOWPOS_CENTERED,

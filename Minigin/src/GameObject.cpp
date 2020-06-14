@@ -70,4 +70,14 @@ namespace dae
 	{
 		return m_pTransform;
 	}
+
+	void GameObject::SetTag(int tag)
+	{
+		m_Tag = tag;
+	}
+
+	int GameObject::GetTag() const
+	{
+		return m_Tag;
+	}
 }

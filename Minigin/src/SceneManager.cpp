@@ -2,50 +2,70 @@
 #include "SceneManager.h"
 #include "Scene.h"
 
-void dae::SceneManager::Prepare()
+namespace dae
 {
-	for (auto& scene : m_Scenes)
+	void SceneManager::Prepare()
 	{
-		scene->Prepare();
+		for (Scene* scene : m_Scenes)
+		{
+			scene->Prepare();
+		}
 	}
-}
 
-
-void dae::SceneManager::PhysicsUpdate()
-{
-	for (auto& scene : m_Scenes)
+	void SceneManager::PhysicsUpdate()
 	{
-		scene->PhysicsUpdate();
+		m_pActiveScene->PhysicsUpdate();
 	}
-}
 
-void dae::SceneManager::Update()
-{
-	for(auto& scene : m_Scenes)
+	void SceneManager::Update()
 	{
-		scene->Update();
+		m_pActiveScene->Update();
 	}
-}
 
-void dae::SceneManager::Render()
-{
-	for (const auto& scene : m_Scenes)
+	void SceneManager::Render()
 	{
-		scene->Render();
+		m_pActiveScene->Render();
 	}
-}
 
-void dae::SceneManager::RenderImGui()
-{
-	for (const auto& scene : m_Scenes)
+	void SceneManager::RenderImGui()
 	{
-		scene->RenderImGui();
+		m_pActiveScene->RenderImGui();
 	}
-}
 
-dae::Scene& dae::SceneManager::CreateScene(const std::string& name)
-{
-	const auto scene = std::shared_ptr<Scene>(new Scene(name));
-	m_Scenes.push_back(scene);
-	return *scene;
+	SceneManager::~SceneManager()
+	{
+		for (Scene* scene : m_Scenes)
+		{
+			delete scene;
+			scene = nullptr;
+		}
+		m_Scenes.clear();
+
+		m_pActiveScene = nullptr;
+	}
+
+	Scene& SceneManager::CreateScene(const std::string& name)
+	{
+		Scene* scene = new Scene(name);
+		m_Scenes.push_back(scene);
+
+		if (m_pActiveScene == nullptr)
+			m_pActiveScene = scene;
+
+		return *scene;
+	}
+
+	void SceneManager::ActivateScene(const std::string& name)
+	{
+		for (Scene* scene : m_Scenes)
+		{
+			if (scene->GetName() == name)
+			{
+				m_pActiveScene = scene;
+				return;
+			}
+		}
+
+		std::cerr << "ERROR: No scene with name " << name << " was found!" << std::endl;
+	}
 }

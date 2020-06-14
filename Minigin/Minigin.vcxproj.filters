@@ -156,6 +156,9 @@
     <ClInclude Include="src\SettingsManager.h">
       <Filter>Minigin\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\ColliderComponent.h">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MiniginPCH.cpp">
@@ -245,6 +248,9 @@
     <ClCompile Include="src\PhysicsConvert.cpp">
       <Filter>Minigin\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="src\SettingsManager.cpp" />
+    <ClCompile Include="src\SettingsManager.cpp">
+      <Filter>Minigin\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColliderComponent.cpp" />
   </ItemGroup>
 </Project>

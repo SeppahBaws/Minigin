@@ -191,6 +191,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\BubbleBobble.cpp" />
+    <ClCompile Include="src\Components\ZenChanBehaviour.cpp" />
     <ClCompile Include="src\Test\FPSComponent.cpp" />
     <ClCompile Include="src\Components\PlayerBehaviour.cpp" />
     <ClCompile Include="src\Main.cpp" />
@@ -203,6 +204,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BubbleBobble.h" />
+    <ClInclude Include="src\Components\ZenChanBehaviour.h" />
     <ClInclude Include="src\Test\FPSComponent.h" />
     <ClInclude Include="src\Components\PlayerBehaviour.h" />
     <ClInclude Include="src\pch.h" />

@@ -7,6 +7,8 @@
 
 #include <box2d/box2d.h>
 
+#include "ColliderComponent.h"
+
 namespace dae
 {
 	RigidBodyComponent::RigidBodyComponent(const glm::vec2& size, RigidBodyType type)
@@ -24,11 +26,8 @@ namespace dae
 		m_pBody->ApplyLinearImpulseToCenter({ impulse.x, impulse.y }, true);
 	}
 
-	void RigidBodyComponent::UpdateBodyTransform(const glm::vec2& position, float rotation)
+	void RigidBodyComponent::UpdateBodyTransform(const glm::vec2&, float)
 	{
-		UNREFERENCED_PARAMETER(position);
-		UNREFERENCED_PARAMETER(rotation);
-
 		// m_pBody->SetTransform({ position.x, position.y }, rotation);
 		// m_pBody->SetLinearVelocity({ 0.0f, 0.0f });
 		// m_pBody->SetAngularVelocity(0.0f);
@@ -57,17 +56,39 @@ namespace dae
 		bodyDef.type = bodyType;
 		bodyDef.position.Set((objPos.x + m_Size.x / 2) / ppm, (objPos.y + m_Size.y / 2) / ppm);
 		bodyDef.fixedRotation = true; // Hard-coded for now, might become a parameter in the future.
-		m_pBody = Physics::GetInstance().GetWorld()->CreateBody(&bodyDef);
+		m_pBody = Physics::GetInstance().GetWorld()->CreateBody(&bodyDef); // Todo: make physics world part of the scene.
 
-		b2PolygonShape boxShape;
-		boxShape.SetAsBox((m_Size.x / 2) / ppm, (m_Size.y / 2) / ppm);
+		// b2PolygonShape boxShape;
+		// boxShape.SetAsBox((m_Size.x / 2) / ppm, (m_Size.y / 2) / ppm);
+		//
+		// b2FixtureDef fixtureDef;
+		// fixtureDef.shape = &boxShape;
+		// fixtureDef.density = 1.0f;
+		// fixtureDef.friction = 0.5f;
+		//
+		// m_pBody->CreateFixture(&fixtureDef);
 
-		b2FixtureDef fixtureDef;
-		fixtureDef.shape = &boxShape;
-		fixtureDef.density = 1.0f;
-		fixtureDef.friction = 0.5f; // Hard-coded for now, might become a parameter in the future.
+		const std::vector<ColliderComponent*> colliders = m_pGameObject->GetComponents<ColliderComponent>();
+		for (const ColliderComponent* pCollider : colliders)
+		{
+			const glm::vec2 size = pCollider->GetSize();
+			const glm::vec2 offset = pCollider->GetOffset();
 
-		m_pBody->CreateFixture(&fixtureDef);
+			b2Vec2 center = PhysicsConvert::ToBox2DVec(offset);
+			center.x /= ppm;
+			center.y /= ppm;
+			
+			b2PolygonShape boxShape;
+			boxShape.SetAsBox((size.x / 2) / ppm, (size.y / 2) / ppm, center, 0.0f);
+
+			b2FixtureDef fixtureDef;
+			fixtureDef.shape = &boxShape;
+			fixtureDef.density = pCollider->GetIsTrigger() ? 0.0f : 1.0f;
+			fixtureDef.friction = 0.5f;
+			fixtureDef.isSensor = pCollider->GetIsTrigger();
+
+			m_pBody->CreateFixture(&fixtureDef);
+		}
 	}
 
 	void RigidBodyComponent::OnPhysicsUpdate()

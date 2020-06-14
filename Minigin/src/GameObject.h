@@ -25,19 +25,10 @@ namespace dae
 
 		TransformComponent* GetTransform() const;
 
-	public:
-		/*
-		 * Adds a new component of the given type.
-		 */
-		template<typename T>
-		typename std::enable_if<std::is_base_of<BaseComponent, T>::value, void>::type
-		AddComponent()
-		{
-			T* pComp = new T();
-			pComp->m_pGameObject = this;
-			m_pComponents.push_back(pComp);
-		}
+		void SetTag(int tag);
+		int GetTag() const;
 
+	public:
 		/*
 		 * Adds an already existing component.
 		 */
@@ -60,8 +51,26 @@ namespace dae
 			return nullptr;
 		}
 
+		/*
+		 * Returns a vector of all components of requested type.
+		 * If no component was found, this will return an empty vector.
+		 */
+		template<typename T>
+		typename std::enable_if<std::is_base_of<BaseComponent, T>::value, std::vector<T*>>::type
+		GetComponents()
+		{
+			std::vector<T*> components;
+			for (const BaseComponent* pComp : m_pComponents)
+			{
+				if (pComp && typeid(*pComp) == typeid(T))
+					components.push_back((T*)pComp);
+			}
+			return components;
+		}
+
 	private:
 		TransformComponent* m_pTransform;
 		std::vector<BaseComponent*> m_pComponents;
+		int m_Tag = 0;
 	};
 }

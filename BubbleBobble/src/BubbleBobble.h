@@ -13,4 +13,12 @@ public:
 private:
 	void SetupInput() const;
 	void SetupScene() const;
+
+	enum EntityTags : int
+	{
+		Player	= 0,
+		Enemy	= 1,
+		Ground	= 2,
+		Wall	= 3
+	};
 };

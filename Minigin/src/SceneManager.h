@@ -14,6 +14,7 @@ namespace dae
 	{
 	public:
 		Scene& CreateScene(const std::string& name);
+		void ActivateScene(const std::string& name);
 
 		void Prepare();
 		void PhysicsUpdate();
@@ -24,6 +25,8 @@ namespace dae
 	private:
 		friend class Singleton<SceneManager>;
 		SceneManager() = default;
-		std::vector<std::shared_ptr<Scene>> m_Scenes;
+		~SceneManager();
+		std::vector<Scene*> m_Scenes;
+		Scene* m_pActiveScene = nullptr;
 	};
 }
