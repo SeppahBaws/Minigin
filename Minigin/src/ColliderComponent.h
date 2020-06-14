@@ -16,8 +16,6 @@ namespace dae
 	public:
 		ColliderComponent(const glm::vec2& offset, const glm::vec2& size, bool isTrigger = false);
 
-		// b2FixtureDef GetFixtureDef() const;
-
 		glm::vec2 GetOffset() const { return m_Offset; }
 		glm::vec2 GetSize() const { return m_Size; }
 		bool GetIsTrigger() const { return m_IsTrigger; }
