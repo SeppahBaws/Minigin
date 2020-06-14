@@ -49,6 +49,7 @@ void dae::MiniginApp::Initialize()
 void dae::MiniginApp::Cleanup()
 {
 	Renderer::GetInstance().Destroy();
+	SceneManager::GetInstance().Cleanup();
 
 	SDL_DestroyWindow(m_Window);
 	m_Window = nullptr;

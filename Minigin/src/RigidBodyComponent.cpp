@@ -16,6 +16,11 @@ namespace dae
 	{
 	}
 
+	RigidBodyComponent::~RigidBodyComponent()
+	{
+		m_pGameObject->GetScene()->GetPhysicsWorld()->DestroyBody(m_pBody);
+	}
+
 	void RigidBodyComponent::ApplyForce(const glm::vec2& force)
 	{
 		m_pBody->ApplyForceToCenter({ force.x, force.y }, true);
@@ -24,6 +29,16 @@ namespace dae
 	void RigidBodyComponent::ApplyImpulse(const glm::vec2& impulse)
 	{
 		m_pBody->ApplyLinearImpulseToCenter({ impulse.x, impulse.y }, true);
+	}
+
+	glm::vec2 RigidBodyComponent::GetLinearVelocity() const
+	{
+		return PhysicsConvert::ToGlmVec(m_pBody->GetLinearVelocity());
+	}
+
+	void RigidBodyComponent::SetLinearVelocity(const glm::vec2& velocity)
+	{
+		m_pBody->SetLinearVelocity(PhysicsConvert::ToBox2DVec(velocity));
 	}
 
 	void RigidBodyComponent::OnPrepare()
@@ -67,7 +82,8 @@ namespace dae
 
 			b2FixtureDef fixtureDef;
 			fixtureDef.shape = &boxShape;
-			fixtureDef.density = pCollider->GetIsTrigger() ? 0.0f : 1.0f;
+			// fixtureDef.density = pCollider->GetIsTrigger() ? 0.0f : 1.0f;
+			fixtureDef.density = 1.0f;
 			fixtureDef.friction = 0.5f;
 			fixtureDef.isSensor = pCollider->GetIsTrigger();
 

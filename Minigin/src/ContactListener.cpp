@@ -6,6 +6,9 @@ namespace dae
 {
 	void ContactListener::BeginContact(b2Contact* contact)
 	{
+		if (m_IsCleanup)
+			return;
+
 		GameObject* pObjA = static_cast<GameObject*>(contact->GetFixtureA()->GetBody()->GetUserData());
 		GameObject* pObjB = static_cast<GameObject*>(contact->GetFixtureB()->GetBody()->GetUserData());
 
@@ -14,6 +17,9 @@ namespace dae
 
 	void ContactListener::EndContact(b2Contact* contact)
 	{
+		if (m_IsCleanup)
+			return;
+
 		GameObject* pObjA = static_cast<GameObject*>(contact->GetFixtureA()->GetBody()->GetUserData());
 		GameObject* pObjB = static_cast<GameObject*>(contact->GetFixtureB()->GetBody()->GetUserData());
 

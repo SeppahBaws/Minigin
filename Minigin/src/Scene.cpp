@@ -20,6 +20,9 @@ namespace dae
 			delete pObject;
 			pObject = nullptr;
 		}
+		m_Objects.clear();
+
+		CleanupRemovedObjects();
 
 		delete m_pPhysicsWorld;
 	}
@@ -28,6 +31,17 @@ namespace dae
 	{
 		object->SetScene(this);
 		m_Objects.push_back(object);
+
+		if (m_IsInGameLoop)
+		{
+			object->Prepare();
+		}
+	}
+
+	void Scene::Remove(GameObject* object)
+	{
+		m_Objects.erase(std::remove(m_Objects.begin(), m_Objects.end(), object), m_Objects.end());
+		m_RemovedObjects.push_back(object);
 	}
 
 	void Scene::Prepare()
@@ -50,9 +64,13 @@ namespace dae
 
 	void Scene::Update()
 	{
-		for (GameObject* object : m_Objects)
+		m_IsInGameLoop = true;
+
+		CleanupRemovedObjects(); // Cleanup any removed objects from previous frame
+
+		for (size_t i = 0; i < m_Objects.size(); i++)
 		{
-			object->Update();
+			m_Objects[i]->Update();
 		}
 	}
 
@@ -70,5 +88,21 @@ namespace dae
 		{
 			object->RenderImGui();
 		}
+	}
+
+	void Scene::Cleanup()
+	{
+		m_IsInGameLoop = false;
+		m_ContactListener.SetCleanup(true);
+	}
+
+	void Scene::CleanupRemovedObjects()
+	{
+		for (GameObject* pObject : m_RemovedObjects)
+		{
+			delete pObject;
+			pObject = nullptr;
+		}
+		m_RemovedObjects.clear();
 	}
 }

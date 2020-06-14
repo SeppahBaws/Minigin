@@ -6,14 +6,19 @@
 #include "GameObject.h"
 #include "RigidBodyComponent.h"
 #include "EntityTags.h"
+#include "Scene.h"
 
 #include "imgui.h"
 
+#include "Bubble.h"
 #include "Observer/Events.h"
 
 #pragma warning(push)
 #pragma warning (disable:4201)
 #include <glm/glm.hpp>
+
+#include "ColliderComponent.h"
+#include "SpriteComponent.h"
 #pragma warning(pop)
 
 namespace dae
@@ -44,6 +49,11 @@ namespace dae
 		{
 			pRB->ApplyImpulse({ 0.0f, -m_JumpForce });
 		}
+
+		if (input.GetAction("Shoot"))
+		{
+			ShootBubble();
+		}
 	}
 
 	void PlayerBehaviour::OnImGui()
@@ -67,10 +77,10 @@ namespace dae
 	{
 		switch (pObject->GetTag())
 		{
-		case EntityTags::Ground:
+		case EntityTags::ET_Ground:
 			m_IsOnGround = true;
 			break;
-		case EntityTags::Enemy:
+		case EntityTags::ET_Enemy:
 			Notify(*GetGameObject(), Event::PlayerLoseLife);
 			break;
 		default:
@@ -82,11 +92,23 @@ namespace dae
 	{
 		switch (pObject->GetTag())
 		{
-		case EntityTags::Ground:
+		case EntityTags::ET_Ground:
 			m_IsOnGround = false;
 			break;
 		default:
 			break;
 		}
+	}
+
+	void PlayerBehaviour::ShootBubble()
+	{
+		GameObject* go = new GameObject();
+		go->SetTag(EntityTags::ET_Bubble);
+		go->GetTransform()->SetPosition(GetGameObject()->GetTransform()->GetPosition());
+		go->AddComponent(new RigidBodyComponent({ 48.0f, 48.0f }, RigidBodyType::Dynamic));
+		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 48.0f, 48.0f }, false));
+		go->AddComponent(new SpriteComponent("sprites/bubble_shoot.png", 1, 2));
+		go->AddComponent(new Bubble());
+		GetGameObject()->GetScene()->Add(go);
 	}
 }

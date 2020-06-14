@@ -32,6 +32,14 @@ namespace dae
 		m_pActiveScene->RenderImGui();
 	}
 
+	void SceneManager::Cleanup()
+	{
+		for (size_t i = 0; i < m_Scenes.size(); i++)
+		{
+			m_Scenes[i]->Cleanup();
+		}
+	}
+
 	SceneManager::~SceneManager()
 	{
 		for (Scene* scene : m_Scenes)

@@ -191,14 +191,15 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\BubbleBobble.cpp" />
-    <ClCompile Include="src\Components\LivesDisplay.cpp" />
+    <ClCompile Include="src\Game\Bubble.cpp" />
+    <ClCompile Include="src\Game\LivesDisplay.cpp" />
+    <ClCompile Include="src\Game\PlayerBehaviour.cpp" />
+    <ClCompile Include="src\Game\ZenChanBehaviour.cpp" />
     <ClCompile Include="src\MainMenu\MainMenuManager.cpp" />
-    <ClCompile Include="src\Components\ZenChanBehaviour.cpp" />
     <ClCompile Include="src\MainMenu\PlayButton.cpp" />
     <ClCompile Include="src\MainMenu\QuitButton.cpp" />
     <ClCompile Include="src\Observer\Subject.cpp" />
     <ClCompile Include="src\Test\FPSComponent.cpp" />
-    <ClCompile Include="src\Components\PlayerBehaviour.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -209,10 +210,12 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BubbleBobble.h" />
-    <ClInclude Include="src\Components\LivesDisplay.h" />
+    <ClInclude Include="src\Game\Bubble.h" />
+    <ClInclude Include="src\Game\LivesDisplay.h" />
+    <ClInclude Include="src\Game\PlayerBehaviour.h" />
+    <ClInclude Include="src\Game\ZenChanBehaviour.h" />
     <ClInclude Include="src\MainMenu\Button.h" />
     <ClInclude Include="src\MainMenu\MainMenuManager.h" />
-    <ClInclude Include="src\Components\ZenChanBehaviour.h" />
     <ClInclude Include="src\EntityTags.h" />
     <ClInclude Include="src\MainMenu\PlayButton.h" />
     <ClInclude Include="src\MainMenu\QuitButton.h" />
@@ -220,7 +223,6 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
     <ClInclude Include="src\Observer\Observer.h" />
     <ClInclude Include="src\Observer\Subject.h" />
     <ClInclude Include="src\Test\FPSComponent.h" />
-    <ClInclude Include="src\Components\PlayerBehaviour.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>

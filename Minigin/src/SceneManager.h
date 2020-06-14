@@ -21,6 +21,7 @@ namespace dae
 		void Update();
 		void Render();
 		void RenderImGui();
+		void Cleanup();
 
 	private:
 		friend class Singleton<SceneManager>;

@@ -21,9 +21,12 @@ namespace dae
 	{
 	public:
 		RigidBodyComponent(const glm::vec2& size, RigidBodyType type = RigidBodyType::Static);
+		~RigidBodyComponent();
 
 		void ApplyForce(const glm::vec2& force);
 		void ApplyImpulse(const glm::vec2& impulse);
+		glm::vec2 GetLinearVelocity() const;
+		void SetLinearVelocity(const glm::vec2& velocity);
 
 		void OnPrepare() override;
 		void OnPhysicsUpdate() override;

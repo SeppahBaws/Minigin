@@ -21,6 +21,8 @@ namespace dae
 		void OnCollisionBegin(GameObject* pObject) override;
 		void OnCollisionEnd(GameObject* pObject) override;
 
+		void ShootBubble();
+
 	private:
 		float m_MovementSpeed;
 		float m_MovementForce;

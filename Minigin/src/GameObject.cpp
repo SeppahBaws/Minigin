@@ -45,10 +45,14 @@ namespace dae
 
 	void GameObject::Update()
 	{
-		for (const auto component : m_pComponents)
+		for (size_t i = 0; i < m_pComponents.size(); i++)
 		{
-			component->OnUpdate();
+			m_pComponents[i]->OnUpdate();
 		}
+		// for (const auto component : m_pComponents)
+		// {
+		// 	component->OnUpdate();
+		// }
 	}
 
 	void GameObject::Render() const
@@ -69,18 +73,26 @@ namespace dae
 
 	void GameObject::OnCollisionBegin(GameObject* pOther)
 	{
-		for (const auto component : m_pComponents)
+		for (size_t i = 0; i < m_pComponents.size(); i++)
 		{
-			component->OnCollisionBegin(pOther);
+			m_pComponents[i]->OnCollisionBegin(pOther);
 		}
+		// for (const auto component : m_pComponents)
+		// {
+		// 	component->OnCollisionBegin(pOther);
+		// }
 	}
 
 	void GameObject::OnCollisionEnd(GameObject* pOther)
 	{
-		for (const auto component : m_pComponents)
+		for (size_t i = 0; i < m_pComponents.size(); i++)
 		{
-			component->OnCollisionEnd(pOther);
+			m_pComponents[i]->OnCollisionEnd(pOther);
 		}
+		// for (const auto component : m_pComponents)
+		// {
+		// 	component->OnCollisionEnd(pOther);
+		// }
 	}
 
 	TransformComponent* GameObject::GetTransform() const

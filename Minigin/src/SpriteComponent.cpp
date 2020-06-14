@@ -16,12 +16,7 @@ namespace dae
 		, m_Scale(scale)
 		, m_FramesPerSec(framesPerSec)
 	{
-		m_pTexture = ResourceManager::GetInstance().LoadTexture(texture);
-
-		int frameWidth, frameHeight;
-		m_pTexture->GetSize(frameWidth, frameHeight);
-
-		m_FrameSize = glm::vec2(frameWidth / columns, frameHeight / rows);
+		InitSprite(texture, rows, columns);
 	}
 
 	SpriteComponent::~SpriteComponent()
@@ -32,6 +27,9 @@ namespace dae
 	void SpriteComponent::OnUpdate()
 	{
 		m_AccumulatedTime += Time::GetInstance().GetDeltaTime();
+
+		if (m_FramesPerSec == 0)
+			return;
 
 		if (m_AccumulatedTime >= 1.0f / float(m_FramesPerSec))
 		{
@@ -61,5 +59,26 @@ namespace dae
 		};
 
 		Renderer::GetInstance().RenderTexture(*m_pTexture, srcRect, dstRect);
+	}
+
+	void SpriteComponent::UpdateSprite(const std::string& texture, int rows, int columns, float scale, int framesPerSec)
+	{
+		delete m_pTexture;
+
+		m_Scale = scale;
+		m_FramesPerSec = framesPerSec;
+		m_AccumulatedTime = 0.0f;
+
+		InitSprite(texture, rows, columns);
+	}
+
+	void SpriteComponent::InitSprite(const std::string& texture, int rows, int columns)
+	{
+		m_pTexture = ResourceManager::GetInstance().LoadTexture(texture);
+
+		int frameWidth, frameHeight;
+		m_pTexture->GetSize(frameWidth, frameHeight);
+
+		m_FrameSize = glm::vec2(frameWidth / columns, frameHeight / rows);
 	}
 }

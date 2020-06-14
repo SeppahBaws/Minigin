@@ -20,6 +20,11 @@ namespace dae
 		void OnUpdate() override;
 		void OnRender() override;
 
+		void UpdateSprite(const std::string& texture, int rows, int columns, float scale = 3.0f, int framesPerSec = 6);
+
+	private:
+		void InitSprite(const std::string& texture, int rows, int columns);
+
 	private:
 		Texture2D* m_pTexture;
 		int m_Rows, m_Columns;
