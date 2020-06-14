@@ -40,7 +40,7 @@ namespace dae
 			pRB->ApplyForce(movement * m_MovementForce);
 		}
 
-		if (input.GetAction("Jump"))
+		if (input.GetAction("Jump") && m_IsOnGround)
 		{
 			pRB->ApplyImpulse({ 0.0f, -m_JumpForce });
 		}
