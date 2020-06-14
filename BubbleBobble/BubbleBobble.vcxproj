@@ -192,7 +192,10 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   <ItemGroup>
     <ClCompile Include="src\BubbleBobble.cpp" />
     <ClCompile Include="src\Components\LivesDisplay.cpp" />
+    <ClCompile Include="src\MainMenu\MainMenuManager.cpp" />
     <ClCompile Include="src\Components\ZenChanBehaviour.cpp" />
+    <ClCompile Include="src\MainMenu\PlayButton.cpp" />
+    <ClCompile Include="src\MainMenu\QuitButton.cpp" />
     <ClCompile Include="src\Observer\Subject.cpp" />
     <ClCompile Include="src\Test\FPSComponent.cpp" />
     <ClCompile Include="src\Components\PlayerBehaviour.cpp" />
@@ -207,8 +210,12 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   <ItemGroup>
     <ClInclude Include="src\BubbleBobble.h" />
     <ClInclude Include="src\Components\LivesDisplay.h" />
+    <ClInclude Include="src\MainMenu\Button.h" />
+    <ClInclude Include="src\MainMenu\MainMenuManager.h" />
     <ClInclude Include="src\Components\ZenChanBehaviour.h" />
     <ClInclude Include="src\EntityTags.h" />
+    <ClInclude Include="src\MainMenu\PlayButton.h" />
+    <ClInclude Include="src\MainMenu\QuitButton.h" />
     <ClInclude Include="src\Observer\Events.h" />
     <ClInclude Include="src\Observer\Observer.h" />
     <ClInclude Include="src\Observer\Subject.h" />

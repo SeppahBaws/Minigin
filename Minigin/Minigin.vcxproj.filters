@@ -254,7 +254,11 @@
     <ClCompile Include="src\SettingsManager.cpp">
       <Filter>Minigin\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\ColliderComponent.cpp" />
-    <ClCompile Include="src\ContactListener.cpp" />
+    <ClCompile Include="src\ColliderComponent.cpp">
+      <Filter>Minigin\Scene\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ContactListener.cpp">
+      <Filter>Minigin\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
