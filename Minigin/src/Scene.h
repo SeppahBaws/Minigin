@@ -2,7 +2,10 @@
 #include <string>
 #include <vector>
 
+#include "ContactListener.h"
 #include "SceneManager.h"
+
+class b2World;
 
 namespace dae
 {
@@ -20,6 +23,7 @@ namespace dae
 		void RenderImGui() const;
 
 		const std::string& GetName() const { return m_Name; }
+		b2World* GetPhysicsWorld() const { return m_pPhysicsWorld; }
 
 		~Scene();
 		Scene(const Scene& other) = delete;
@@ -34,6 +38,7 @@ namespace dae
 		std::string m_Name;
 		std::vector<GameObject*> m_Objects{};
 
-		static unsigned int m_IdCounter;
+		b2World* m_pPhysicsWorld;
+		ContactListener m_ContactListener;
 	};
 }

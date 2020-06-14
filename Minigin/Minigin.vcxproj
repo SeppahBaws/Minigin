@@ -218,6 +218,7 @@
     <ClInclude Include="..\3rdParty\imgui_sdl\imgui_sdl.h" />
     <ClInclude Include="..\3rdParty\inih\INIReader.h" />
     <ClInclude Include="src\ColliderComponent.h" />
+    <ClInclude Include="src\ContactListener.h" />
     <ClInclude Include="src\GamepadInput.h" />
     <ClInclude Include="src\InputAction.h" />
     <ClInclude Include="src\InputAxis.h" />
@@ -284,6 +285,7 @@
     </ClCompile>
     <ClCompile Include="src\ColliderComponent.cpp" />
     <ClCompile Include="src\Color.cpp" />
+    <ClCompile Include="src\ContactListener.cpp" />
     <ClCompile Include="src\Font.cpp" />
     <ClCompile Include="src\InputAction.cpp" />
     <ClCompile Include="src\InputAxis.cpp" />

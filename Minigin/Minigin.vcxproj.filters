@@ -159,6 +159,9 @@
     <ClInclude Include="src\ColliderComponent.h">
       <Filter>Minigin\Scene\Components</Filter>
     </ClInclude>
+    <ClInclude Include="src\ContactListener.h">
+      <Filter>Minigin\Physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MiniginPCH.cpp">
@@ -252,5 +255,6 @@
       <Filter>Minigin\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\ColliderComponent.cpp" />
+    <ClCompile Include="src\ContactListener.cpp" />
   </ItemGroup>
 </Project>

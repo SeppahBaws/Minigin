@@ -7,6 +7,7 @@
 #include "SceneManager.h"
 #include "Scene.h"
 #include "Components.h"
+#include "EntityTags.h"
 #include "GameObject.h"
 
 #include "Components/PlayerBehaviour.h"
@@ -71,7 +72,6 @@ void BubbleBobble::SetupScene() const
 	go->GetTransform()->SetPosition({ 200, 200, 0 });
 	go->AddComponent(new RigidBodyComponent(glm::vec2(48.0f, 48.0f), RigidBodyType::Dynamic));
 	go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 48.0f, 48.0f }));
-	go->AddComponent(new ColliderComponent({ 0.0f, 25.0f }, { 48.0f, 10.0f }, true));
 	go->AddComponent(new PlayerBehaviour());
 	go->AddComponent(new SpriteComponent("sprites/bub_run.png", 1, 2, 3.0f, 3));
 	scene.Add(go);
@@ -83,6 +83,7 @@ void BubbleBobble::SetupScene() const
 	go->AddComponent(new ZenChanBehaviour());
 	go->AddComponent(new RigidBodyComponent(glm::vec2(48.0f, 48.0f), RigidBodyType::Dynamic));
 	go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 48.0f, 48.0f }));
+	go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 55.0f, 55.0f }, true));
 	go->AddComponent(new SpriteComponent("sprites/zen-chan_run.png", 1, 2, 3.0f, 3));
 	scene.Add(go);
 

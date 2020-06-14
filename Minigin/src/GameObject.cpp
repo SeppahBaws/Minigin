@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include "BaseComponent.h"
 #include "TransformComponent.h"
+#include "Scene.h"
 
 namespace dae
 {
@@ -66,9 +67,35 @@ namespace dae
 		}
 	}
 
+	void GameObject::OnCollisionBegin(GameObject* pOther)
+	{
+		for (const auto component : m_pComponents)
+		{
+			component->OnCollisionBegin(pOther);
+		}
+	}
+
+	void GameObject::OnCollisionEnd(GameObject* pOther)
+	{
+		for (const auto component : m_pComponents)
+		{
+			component->OnCollisionEnd(pOther);
+		}
+	}
+
 	TransformComponent* GameObject::GetTransform() const
 	{
 		return m_pTransform;
+	}
+
+	void GameObject::SetScene(Scene* pScene)
+	{
+		m_pScene = pScene;
+	}
+
+	Scene* GameObject::GetScene() const
+	{
+		return m_pScene;
 	}
 
 	void GameObject::SetTag(int tag)

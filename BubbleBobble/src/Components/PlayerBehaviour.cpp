@@ -5,6 +5,7 @@
 #include "InputManager.h"
 #include "GameObject.h"
 #include "RigidBodyComponent.h"
+#include "EntityTags.h"
 
 #include "imgui.h"
 
@@ -55,11 +56,34 @@ namespace dae
 
 			ImGui::Spacing();
 
-			if (ImGui::Button("ResetPlayer"))
-			{
-				m_pGameObject->GetTransform()->SetPosition({ 200, 200, 0 });
-			}
+			ImGui::Text("Standing on ground: %d", m_IsOnGround);
 		}
 		ImGui::End();
+	}
+
+	void PlayerBehaviour::OnCollisionBegin(GameObject* pObject)
+	{
+		switch (pObject->GetTag())
+		{
+		case EntityTags::Ground:
+			m_IsOnGround = true;
+			break;
+		case EntityTags::Enemy:
+			break;
+		default:
+			break;
+		}
+	}
+
+	void PlayerBehaviour::OnCollisionEnd(GameObject* pObject)
+	{
+		switch (pObject->GetTag())
+		{
+		case EntityTags::Ground:
+			m_IsOnGround = false;
+			break;
+		default:
+			break;
+		}
 	}
 }

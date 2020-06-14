@@ -7,6 +7,8 @@
 namespace dae
 {
 	class Texture2D;
+	class Scene;
+
 	class GameObject final
 	{
 	public:
@@ -23,7 +25,13 @@ namespace dae
 		void Render() const;
 		void RenderImGui() const;
 
+		void OnCollisionBegin(GameObject* pOther);
+		void OnCollisionEnd(GameObject* pOther);
+
 		TransformComponent* GetTransform() const;
+
+		void SetScene(Scene* pScene);
+		Scene* GetScene() const;
 
 		void SetTag(int tag);
 		int GetTag() const;
@@ -72,5 +80,6 @@ namespace dae
 		TransformComponent* m_pTransform;
 		std::vector<BaseComponent*> m_pComponents;
 		int m_Tag = 0;
+		Scene* m_pScene;
 	};
 }

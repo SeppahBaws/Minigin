@@ -17,9 +17,14 @@ namespace dae
 		void OnUpdate() override;
 		void OnImGui() override;
 
+		void OnCollisionBegin(GameObject* pObject) override;
+		void OnCollisionEnd(GameObject* pObject) override;
+
 	private:
 		float m_MovementSpeed;
 		float m_MovementForce;
 		float m_JumpForce;
+
+		bool m_IsOnGround;
 	};
 }

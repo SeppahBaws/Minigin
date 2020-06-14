@@ -44,13 +44,10 @@ void dae::MiniginApp::Initialize()
 	}
 
 	Renderer::GetInstance().Init(m_Window);
-
-	Physics::GetInstance().Init();
 }
 
 void dae::MiniginApp::Cleanup()
 {
-	Physics::GetInstance().Destroy();
 	Renderer::GetInstance().Destroy();
 
 	SDL_DestroyWindow(m_Window);
@@ -87,7 +84,6 @@ void dae::MiniginApp::Run()
 			if (engineSettings.debug)
 				ImGuiWrapper::NewFrame();
 
-			Physics::GetInstance().Update();
 			sceneManager.PhysicsUpdate();
 
 			input.Update();

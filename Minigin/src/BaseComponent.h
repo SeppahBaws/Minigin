@@ -22,6 +22,9 @@ namespace dae
 		virtual void OnRender() {}
 		virtual void OnImGui() {}
 
+		virtual void OnCollisionBegin(GameObject*) {}
+		virtual void OnCollisionEnd(GameObject*) {}
+
 		GameObject* GetGameObject() const { return m_pGameObject; }
 
 	protected:

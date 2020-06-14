@@ -2,13 +2,15 @@
 #include "Scene.h"
 #include "GameObject.h"
 
+#include "Physics.h"
+
 namespace dae
 {
-	unsigned int Scene::m_IdCounter = 0;
-
 	Scene::Scene(const std::string& name)
 		: m_Name(name)
 	{
+		m_pPhysicsWorld = Physics::GetInstance().CreateWorld();
+		m_pPhysicsWorld->SetContactListener(&m_ContactListener);
 	}
 
 	Scene::~Scene()
@@ -18,10 +20,13 @@ namespace dae
 			delete pObject;
 			pObject = nullptr;
 		}
+
+		delete m_pPhysicsWorld;
 	}
 
 	void Scene::Add(GameObject* object)
 	{
+		object->SetScene(this);
 		m_Objects.push_back(object);
 	}
 
@@ -35,6 +40,8 @@ namespace dae
 
 	void Scene::PhysicsUpdate()
 	{
+		Physics::GetInstance().Update(m_pPhysicsWorld);
+
 		for (GameObject* object : m_Objects)
 		{
 			object->PhysicsUpdate();

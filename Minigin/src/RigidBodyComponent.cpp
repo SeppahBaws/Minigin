@@ -1,13 +1,13 @@
 ﻿#include "MiniginPCH.h"
 #include "RigidBodyComponent.h"
+#include "ColliderComponent.h"
 #include "GameObject.h"
 #include "Physics.h"
 #include "PhysicsConvert.h"
 #include "Renderer.h"
+#include "Scene.h"
 
 #include <box2d/box2d.h>
-
-#include "ColliderComponent.h"
 
 namespace dae
 {
@@ -49,7 +49,8 @@ namespace dae
 		bodyDef.type = bodyType;
 		bodyDef.position.Set((objPos.x + m_Size.x / 2) / ppm, (objPos.y + m_Size.y / 2) / ppm);
 		bodyDef.fixedRotation = true; // Hard-coded for now, might become a parameter in the future.
-		m_pBody = Physics::GetInstance().GetWorld()->CreateBody(&bodyDef); // Todo: make physics world part of the scene.
+		bodyDef.userData = GetGameObject();
+		m_pBody = GetGameObject()->GetScene()->GetPhysicsWorld()->CreateBody(&bodyDef);
 
 		const std::vector<ColliderComponent*> colliders = m_pGameObject->GetComponents<ColliderComponent>();
 		for (const ColliderComponent* pCollider : colliders)
