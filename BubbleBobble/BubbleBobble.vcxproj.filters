@@ -57,6 +57,9 @@
     <ClCompile Include="src\MainMenu\GameOverManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\StretchedTextureRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BubbleBobble.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\MainMenu\GameOverManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\StretchedTextureRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

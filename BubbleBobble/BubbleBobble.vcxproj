@@ -195,6 +195,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
     <ClCompile Include="src\Game\GameManager.cpp" />
     <ClCompile Include="src\Game\LivesDisplay.cpp" />
     <ClCompile Include="src\Game\PlayerBehaviour.cpp" />
+    <ClCompile Include="src\Game\StretchedTextureRenderer.cpp" />
     <ClCompile Include="src\Game\ZenChanBehaviour.cpp" />
     <ClCompile Include="src\MainMenu\GameOverManager.cpp" />
     <ClCompile Include="src\MainMenu\MainMenuManager.cpp" />
@@ -216,6 +217,7 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
     <ClInclude Include="src\Game\GameManager.h" />
     <ClInclude Include="src\Game\LivesDisplay.h" />
     <ClInclude Include="src\Game\PlayerBehaviour.h" />
+    <ClInclude Include="src\Game\StretchedTextureRenderer.h" />
     <ClInclude Include="src\Game\ZenChanBehaviour.h" />
     <ClInclude Include="src\MainMenu\Button.h" />
     <ClInclude Include="src\MainMenu\GameOverManager.h" />

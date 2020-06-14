@@ -32,6 +32,8 @@ namespace dae
 		void OnPhysicsUpdate() override;
 		void OnImGui() override;
 
+		glm::vec2 GetSize() const { return m_Size; }
+
 	private:
 		glm::vec2 m_Size;
 		RigidBodyType m_Type;

@@ -11,6 +11,7 @@
 #include "Game/GameManager.h"
 #include "Game/LivesDisplay.h"
 #include "Game/PlayerBehaviour.h"
+#include "Game/StretchedTextureRenderer.h"
 #include "Game/ZenChanBehaviour.h"
 #include "MainMenu/GameOverManager.h"
 #include "MainMenu/MainMenuManager.h"
@@ -104,7 +105,7 @@ void BubbleBobble::SetupScene() const
 
 		// Lives display
 		go = new GameObject();
-		go->GetTransform()->SetPosition({ 100, 10, 0 });
+		go->GetTransform()->SetPosition({ 25.0f, 25.0f, 0 });
 		go->AddComponent(new TextComponent("lives: 4"));
 		LivesDisplay* livesDisplay = new LivesDisplay();
 		go->AddComponent(livesDisplay);
@@ -143,7 +144,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 0, 460, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(640.0f, 20.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 640.0f, 20.0f }));
-		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
+		go->AddComponent(new StretchedTextureRenderer("wall_tile.png"));
 		scene.Add(go);
 
 		// Top
@@ -152,7 +153,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 0, 0, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(640.0f, 20.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 640.0f, 20.0f }));
-		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
+		go->AddComponent(new StretchedTextureRenderer("wall_tile.png"));
 		scene.Add(go);
 
 		// Left
@@ -161,7 +162,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 0, 0, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(20.0f, 480.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 20.0f, 480.0f }));
-		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
+		go->AddComponent(new StretchedTextureRenderer("wall_tile.png"));
 		scene.Add(go);
 
 		// Right
@@ -170,7 +171,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 620, 0, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(20.0f, 640.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 20.0f, 640.0f }));
-		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
+		go->AddComponent(new StretchedTextureRenderer("wall_tile.png"));
 		scene.Add(go);
 
 
@@ -182,7 +183,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 20, 170, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(60.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 60.0f, 25.0f }));
-		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
+		go->AddComponent(new StretchedTextureRenderer("wall_tile.png"));
 		scene.Add(go);
 
 		go = new GameObject();
@@ -190,7 +191,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 160, 170, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(320.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 320.0f, 25.0f }));
-		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
+		go->AddComponent(new StretchedTextureRenderer("wall_tile.png"));
 		scene.Add(go);
 
 		go = new GameObject();
@@ -198,7 +199,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 560, 170, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(60.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 60.0f, 25.0f }));
-		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
+		go->AddComponent(new StretchedTextureRenderer("wall_tile.png"));
 		scene.Add(go);
 
 		// Bottom row
@@ -207,7 +208,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 20, 320, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(100.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 100.0f, 25.0f }));
-		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
+		go->AddComponent(new StretchedTextureRenderer("wall_tile.png"));
 		scene.Add(go);
 
 		go = new GameObject();
@@ -215,7 +216,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 200, 320, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(240.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 240.0f, 25.0f }));
-		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
+		go->AddComponent(new StretchedTextureRenderer("wall_tile.png"));
 		scene.Add(go);
 
 		go = new GameObject();
@@ -223,7 +224,7 @@ void BubbleBobble::SetupScene() const
 		go->GetTransform()->SetPosition({ 520, 320, 0 });
 		go->AddComponent(new RigidBodyComponent(glm::vec2(100.0f, 25.0f), RigidBodyType::Static));
 		go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 100.0f, 25.0f }));
-		go->AddComponent(new SpriteComponent("wall_tile.png", 1, 1, 3, 0));
+		go->AddComponent(new StretchedTextureRenderer("wall_tile.png"));
 		scene.Add(go);
 #pragma endregion
 	}
