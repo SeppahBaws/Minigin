@@ -1,10 +1,11 @@
 ﻿#pragma once
 
 #include "BaseComponent.h"
+#include "Observer/Subject.h"
 
 namespace dae
 {
-	class PlayerBehaviour final : public BaseComponent
+	class PlayerBehaviour final : public BaseComponent, public Subject
 	{
 	public:
 		PlayerBehaviour();
@@ -19,6 +20,8 @@ namespace dae
 
 		void OnCollisionBegin(GameObject* pObject) override;
 		void OnCollisionEnd(GameObject* pObject) override;
+
+		
 
 	private:
 		float m_MovementSpeed;

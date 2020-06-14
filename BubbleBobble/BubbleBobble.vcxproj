@@ -191,7 +191,9 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\BubbleBobble.cpp" />
+    <ClCompile Include="src\Components\LivesDisplay.cpp" />
     <ClCompile Include="src\Components\ZenChanBehaviour.cpp" />
+    <ClCompile Include="src\Observer\Subject.cpp" />
     <ClCompile Include="src\Test\FPSComponent.cpp" />
     <ClCompile Include="src\Components\PlayerBehaviour.cpp" />
     <ClCompile Include="src\Main.cpp" />
@@ -204,8 +206,12 @@ xcopy "$(SolutionDir)3rdParty\SDL2_ttf\lib\x64\*.dll" "$(OutputPath)" /R /Y</Com
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BubbleBobble.h" />
+    <ClInclude Include="src\Components\LivesDisplay.h" />
     <ClInclude Include="src\Components\ZenChanBehaviour.h" />
     <ClInclude Include="src\EntityTags.h" />
+    <ClInclude Include="src\Observer\Events.h" />
+    <ClInclude Include="src\Observer\Observer.h" />
+    <ClInclude Include="src\Observer\Subject.h" />
     <ClInclude Include="src\Test\FPSComponent.h" />
     <ClInclude Include="src\Components\PlayerBehaviour.h" />
     <ClInclude Include="src\pch.h" />

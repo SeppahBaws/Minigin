@@ -9,6 +9,8 @@
 
 #include "imgui.h"
 
+#include "Observer/Events.h"
+
 #pragma warning(push)
 #pragma warning (disable:4201)
 #include <glm/glm.hpp>
@@ -69,6 +71,7 @@ namespace dae
 			m_IsOnGround = true;
 			break;
 		case EntityTags::Enemy:
+			Notify(*GetGameObject(), Event::PlayerLoseLife);
 			break;
 		default:
 			break;

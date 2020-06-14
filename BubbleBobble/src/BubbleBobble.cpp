@@ -9,6 +9,7 @@
 #include "Components.h"
 #include "EntityTags.h"
 #include "GameObject.h"
+#include "Components/LivesDisplay.h"
 
 #include "Components/PlayerBehaviour.h"
 #include "Components/ZenChanBehaviour.h"
@@ -66,13 +67,23 @@ void BubbleBobble::SetupScene() const
 	go->AddComponent(new FPSComponent());
 	scene.Add(go);
 
+	// Lives display
+	go = new GameObject();
+	go->GetTransform()->SetPosition({ 10, 150, 0 });
+	go->AddComponent(new TextComponent("lives: 4"));
+	LivesDisplay* livesDisplay = new LivesDisplay();
+	go->AddComponent(livesDisplay);
+	scene.Add(go);
+
 	// Player
 	go = new GameObject();
 	go->SetTag(EntityTags::Player);
 	go->GetTransform()->SetPosition({ 200, 200, 0 });
 	go->AddComponent(new RigidBodyComponent(glm::vec2(48.0f, 48.0f), RigidBodyType::Dynamic));
 	go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 48.0f, 48.0f }));
-	go->AddComponent(new PlayerBehaviour());
+	PlayerBehaviour* pPlayerBehaviour = new PlayerBehaviour();
+	pPlayerBehaviour->AddObserver(livesDisplay);
+	go->AddComponent(pPlayerBehaviour);
 	go->AddComponent(new SpriteComponent("sprites/bub_run.png", 1, 2, 3.0f, 3));
 	scene.Add(go);
 
@@ -83,7 +94,6 @@ void BubbleBobble::SetupScene() const
 	go->AddComponent(new ZenChanBehaviour());
 	go->AddComponent(new RigidBodyComponent(glm::vec2(48.0f, 48.0f), RigidBodyType::Dynamic));
 	go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 48.0f, 48.0f }));
-	go->AddComponent(new ColliderComponent({ 0.0f, 0.0f }, { 55.0f, 55.0f }, true));
 	go->AddComponent(new SpriteComponent("sprites/zen-chan_run.png", 1, 2, 3.0f, 3));
 	scene.Add(go);
 
